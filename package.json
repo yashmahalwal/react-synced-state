@@ -1,0 +1,40 @@
+{
+  "name": "@yashmahalwal/react-synced-state",
+  "version": "1.0.0",
+  "description": "A react hook to synchronise state updates",
+  "main": "build/index.js",
+  "scripts": {
+    "example": "snowpack dev",
+    "example:build": "snowpack build",
+    "build": "rm -rf build/* && tsc -p tsconfig.build.json",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashmahalwal/react-synced-state.git"
+  },
+  "keywords": [
+    "react",
+    "sync",
+    "state",
+    "hook",
+    "react-native"
+  ],
+  "author": "Yash Mahalwal <yashmahalwal@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yashmahalwal/react-synced-state/issues"
+  },
+  "homepage": "https://github.com/yashmahalwal/react-synced-state#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "jest": "^27.4.5",
+    "react-dom": "^17.0.2",
+    "snowpack": "^3.8.8",
+    "typescript": "^4.5.4"
+  }
+}
