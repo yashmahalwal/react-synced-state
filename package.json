@@ -26,7 +26,7 @@
     "url": "https://github.com/yashmahalwal/react-synced-state/issues"
   },
   "homepage": "https://github.com/yashmahalwal/react-synced-state#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^17.0.2"
   },
   "devDependencies": {
