@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ef49e33-bc40-41c2-95d6-53ba16601a46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/build/PriorityStateQueue.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/PriorityStateQueue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/PriorityStateQueue.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/types.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PriorityStateQueue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SyncedStateProvider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/useSyncedState.tsx" afterDir="false" />
+    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="chore: use static methods">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/react-synced-state.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PriorityStateQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityStateQueue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SyncedStateProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SyncedStateProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/useSyncedState.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/useSyncedState.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +30,7 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
-  <component name="ProjectId" id="232kjgpAPfdi704h9C8wPmHwR7G" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="23HqqaSSFF2YB7DaF3kl5GbII5y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,89 +42,49 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/example" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.build">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="example" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="example" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.example" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8ef49e33-bc40-41c2-95d6-53ba16601a46" name="Changes" comment="" />
-      <created>1640939708723</created>
+      <changelist id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="" />
+      <created>1641401551967</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1640939708723</updated>
-      <workItem from="1640939711191" duration="2229000" />
-      <workItem from="1641198671225" duration="82000" />
-      <workItem from="1641315633709" duration="2165000" />
-      <workItem from="1641317818951" duration="65000" />
-      <workItem from="1641317897731" duration="150000" />
-      <workItem from="1641318049597" duration="2903000" />
-      <workItem from="1641362013868" duration="60000" />
-      <workItem from="1641396571270" duration="2865000" />
+      <updated>1641401551967</updated>
+      <workItem from="1641401554025" duration="342000" />
+      <workItem from="1641406261764" duration="1145000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/example/index.js.map" />
+        <option value="$PROJECT_DIR$/example/index.js" />
+        <option value="$PROJECT_DIR$/example/index.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: use static methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: use static methods" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

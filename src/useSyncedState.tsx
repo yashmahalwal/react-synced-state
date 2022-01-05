@@ -1,29 +1,41 @@
-import {Dispatch, SetStateAction, useContext, useEffect, useMemo, useRef, useState} from "react";
+import { Dispatch, SetStateAction, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { SyncedStateContext } from "./SyncedStateProvider";
-import {CheckFunction, Config, defaultLayerName, defaultPriority, QueueTicket} from "./types";
+import { Config, defaultLayerName, defaultPriority, QueueTicket } from "./types";
 
-export default function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>]{
-    const [state, setState] = useState(arg);
-    const ticketNumber = useRef<QueueTicket | null>(null);
-    const syncedContext = useContext(SyncedStateContext);
-    const isStateFalsy = useMemo(() => config?.shouldDequeue?.(state), [])
+export function useSyncLogic<T>(state: T, config?: Config<T>): T {
+  const ticketNumber = useRef<QueueTicket | null>(null);
+  const syncedContext = useContext(SyncedStateContext);
+  const isStateFalsy = useMemo(() => config?.shouldDequeue?.(state) ?? !!state, [config?.shouldDequeue]);
+  const oldStateValue = useRef(state);
+  const isAtFrontOfQueue = useMemo(() => {
+    return !!ticketNumber.current && syncedContext.top.get(config?.layer ?? defaultLayerName) === ticketNumber.current;
+  }, [syncedContext.top]);
 
-    useEffect(() => {
-        const layer = config?.layer ?? defaultLayerName;
-        const priority = config?.priority ?? defaultPriority;
-        const checkFunction = useMemo(() => config?.shouldDequeue ?? CheckFunction, [config?.shouldDequeue]);
-        const dequeueCheck = checkFunction(state);
-        const cleanup = () => {
-            ticketNumber.current && syncedContext.removeFromQueue(ticketNumber.current, layer, priority);
-            ticketNumber.current = null;
-        }
-        if(!dequeueCheck){
-            ticketNumber.current = syncedContext.addToQueue(layer, priority);
-        }
+  useEffect(
+    () => () => {
+      oldStateValue.current = state;
+    },
+    [state]
+  );
 
-        return cleanup;
+  useEffect(() => {
+    const layer = config?.layer ?? defaultLayerName;
+    const priority = config?.priority ?? defaultPriority;
+    const cleanup = () => {
+      ticketNumber.current && syncedContext.removeFromQueue(ticketNumber.current, layer, priority);
+      ticketNumber.current = null;
+    };
+    if (!isStateFalsy) {
+      ticketNumber.current = syncedContext.addToQueue(layer, priority);
+    }
 
-    }, [state, config?.layer, config?.priority, config?.shouldDequeue]);
+    return cleanup;
+  }, [state, config?.layer, config?.priority, isStateFalsy]);
 
-    return [state, setState];
+  return isStateFalsy || isAtFrontOfQueue ? state : oldStateValue.current;
+}
+
+export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>] {
+  const [state, setState] = useState(arg);
+  return [useSyncLogic(state, config), setState];
 }
