@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="fix(hooks/useSyncLogic): save old state when moved to/from queue front">
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/jest-typescript.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/priority-queue.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/utils.ts" afterDir="false" />
+    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="chore(test): basic fifo behaviour">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PriorityStateQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityStateQueue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/priority-queue.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/priority-queue.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +71,7 @@
       <workItem from="1641401554025" duration="342000" />
       <workItem from="1641406261764" duration="1701000" />
       <workItem from="1641457894049" duration="54000" />
-      <workItem from="1641470286569" duration="2334000" />
+      <workItem from="1641470286569" duration="2556000" />
     </task>
     <task id="LOCAL-00001" summary="feat: sync hook logic">
       <created>1641407447607</created>
@@ -93,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641470433444</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="chore(test): basic fifo behaviour">
+      <created>1641472655512</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641472655512</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,31 +123,8 @@
     <MESSAGE value="chore: use static methods" />
     <MESSAGE value="feat: sync hook logic" />
     <MESSAGE value="fix(hooks/useSyncLogic): save old state when moved to/from queue front" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(hooks/useSyncLogic): save old state when moved to/from queue front" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/PriorityStateQueue.ts</url>
-          <line>144</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/tests/priority-queue.test.ts</url>
-          <line>15</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/PriorityStateQueue.ts</url>
-          <line>146</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="chore(test): basic fifo behaviour" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(test): basic fifo behaviour" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
