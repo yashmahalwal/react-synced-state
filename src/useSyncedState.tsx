@@ -5,16 +5,17 @@ import { Config, defaultLayerName, defaultPriority, QueueTicket } from "./types"
 export function useSyncLogic<T>(state: T, config?: Config<T>): T {
   const ticketNumber = useRef<QueueTicket | null>(null);
   const syncedContext = useContext(SyncedStateContext);
-  const isStateFalsy = useMemo(() => config?.shouldDequeue?.(state) ?? !!state, [config?.shouldDequeue]);
+  const isStateFalsy = useMemo(() => config?.shouldDequeue?.(state) ?? !!state, [config, state]);
   const oldStateValue = useRef(state);
   const isAtFrontOfQueue = useMemo(() => {
     return !!ticketNumber.current && syncedContext.top.get(config?.layer ?? defaultLayerName) === ticketNumber.current;
-  }, [syncedContext.top]);
+  }, [config?.layer, syncedContext.top]);
 
   useEffect(
     () => () => {
       oldStateValue.current = state;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isAtFrontOfQueue]
   );
 
@@ -30,7 +31,7 @@ export function useSyncLogic<T>(state: T, config?: Config<T>): T {
     }
 
     return cleanup;
-  }, [state, config?.layer, config?.priority, isStateFalsy]);
+  }, [state, config?.layer, config?.priority, isStateFalsy, syncedContext]);
 
   return isStateFalsy || isAtFrontOfQueue ? state : oldStateValue.current;
 }

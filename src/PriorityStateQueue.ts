@@ -15,13 +15,13 @@ export default class PriorityStateQueue {
   private static getLeftChildIndex(index: number, heap: QueueTicket[]) {
     PriorityStateQueue.checkHeapIndex(index, heap);
     const value = 2 * index + 1;
-    return value < length ? value : null;
+    return value < heap.length ? value : null;
   }
 
   private static getRightChildIndex(index: number, heap: QueueTicket[]) {
     PriorityStateQueue.checkHeapIndex(index, heap);
     const value = 2 * index + 2;
-    return value < length ? value : null;
+    return value < heap.length ? value : null;
   }
 
   private static getParentIndex(index: number, heap: QueueTicket[]) {
@@ -37,14 +37,14 @@ export default class PriorityStateQueue {
     PriorityStateQueue.checkHeapIndex(index1, heap);
     PriorityStateQueue.checkHeapIndex(index2, heap);
 
-    let temp = heap[index1];
+    const temp = heap[index1];
     heap[index1] = heap[index2];
     heap[index2] = temp;
   }
 
   private heapify(index: number, heap: QueueTicket[]) {
     PriorityStateQueue.checkHeapIndex(index, heap);
-    if (index > length || index < 0) {
+    if (index > heap.length || index < 0) {
       throw new Error(`Cannot heapify at index ${index}`);
     }
     let largest = index;
@@ -75,7 +75,7 @@ export default class PriorityStateQueue {
       let index = layerHeap.length - 1;
       let parent = PriorityStateQueue.getParentIndex(index, layerHeap);
       // Bubble up
-      while (parent) {
+      while (parent !== null) {
         if (layerHeap[parent] < layerHeap[index]) {
           PriorityStateQueue.swapHeapElements(parent, index, layerHeap);
         } else {
@@ -121,7 +121,7 @@ export default class PriorityStateQueue {
 
     const layer = this.layers.get(layerName)!;
     // Lazy delete from heap
-    for (let top = layer.heap[0]; layer.heap.length && !layer.map.has(top); ) {
+    for (let top = layer.heap[0]; layer.heap.length && !layer.map.has(top); top = layer.heap[0]) {
       if (layer.heap.length === 1) {
         layer.heap.pop();
       } else {

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="test(priority-state-queue): empty queue assertion">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="chore: ignore idea files">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PriorityStateQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityStateQueue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/useSyncedState.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/useSyncedState.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/priority-queue.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/priority-queue.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,14 +38,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.Priority State Queue.Acts as a priority FIFO queue without layers">
     <configuration name="Priority State Queue.Acts as a FIFO queue in most basic case" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -53,8 +64,53 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Priority State Queue.Acts as a FIFO queue without layers and priorities" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/tests/priority-queue.test.ts" />
+      <test-names>
+        <test-name value="Priority State Queue" />
+        <test-name value="Acts as a FIFO queue without layers and priorities" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Priority State Queue.Acts as a FIFO queue" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/tests/priority-queue.test.ts" />
+      <test-names>
+        <test-name value="Priority State Queue" />
+        <test-name value="Acts as a FIFO queue" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Priority State Queue.Acts as a priority FIFO queue without layers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/tests/priority-queue.test.ts" />
+      <test-names>
+        <test-name value="Priority State Queue" />
+        <test-name value="Acts as a priority FIFO queue without layers" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Priority State Queue.Acts as a priority FIFO queue without layers" />
+        <item itemvalue="Jest.Priority State Queue.Acts as a FIFO queue without layers and priorities" />
+        <item itemvalue="Jest.Priority State Queue.Acts as a FIFO queue" />
         <item itemvalue="Jest.Priority State Queue.Acts as a FIFO queue in most basic case" />
       </list>
     </recent_temporary>
@@ -70,7 +126,10 @@
       <workItem from="1641401554025" duration="342000" />
       <workItem from="1641406261764" duration="1701000" />
       <workItem from="1641457894049" duration="54000" />
-      <workItem from="1641470286569" duration="2640000" />
+      <workItem from="1641470286569" duration="2904000" />
+      <workItem from="1641473210357" duration="153000" />
+      <workItem from="1641473379179" duration="126000" />
+      <workItem from="1641473553778" duration="5902000" />
     </task>
     <task id="LOCAL-00001" summary="feat: sync hook logic">
       <created>1641407447607</created>
@@ -100,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641472908594</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="chore: ignore idea files">
+      <created>1641472942332</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641472942332</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +197,20 @@
     <MESSAGE value="fix(hooks/useSyncLogic): save old state when moved to/from queue front" />
     <MESSAGE value="chore(test): basic fifo behaviour" />
     <MESSAGE value="test(priority-state-queue): empty queue assertion" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(priority-state-queue): empty queue assertion" />
+    <MESSAGE value="chore: ignore idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: ignore idea files" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/tests/priority-queue.test.ts</url>
+          <line>116</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
