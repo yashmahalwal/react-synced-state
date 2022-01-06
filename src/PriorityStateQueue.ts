@@ -142,7 +142,7 @@ export default class PriorityStateQueue {
     const records: Map<Layer, QueueTicket> = new Map();
     for (const key of this.layers.keys()) {
       const e = this.getNextEntry(key);
-      e && records.set(key, e);
+      typeof e === "number" && records.set(key, e);
     }
     return records;
   }
