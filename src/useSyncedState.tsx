@@ -15,7 +15,7 @@ export function useSyncLogic<T>(state: T, config?: Config<T>): T {
     () => () => {
       oldStateValue.current = state;
     },
-    [state]
+    [isAtFrontOfQueue]
   );
 
   useEffect(() => {

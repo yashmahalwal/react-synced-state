@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="chore: use static methods">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/react-synced-state.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+    <list default="true" id="dc78f0bd-8254-438f-bc06-ee3f5f0f6f18" name="Changes" comment="feat: sync hook logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PriorityStateQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityStateQueue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SyncedStateProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SyncedStateProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/useSyncedState.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/useSyncedState.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +46,17 @@
       <option name="presentableId" value="Default" />
       <updated>1641401551967</updated>
       <workItem from="1641401554025" duration="342000" />
-      <workItem from="1641406261764" duration="1145000" />
+      <workItem from="1641406261764" duration="1701000" />
+      <workItem from="1641457894049" duration="54000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: sync hook logic">
+      <created>1641407447607</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1641407447607</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,7 +83,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore: use static methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: use static methods" />
+    <MESSAGE value="feat: sync hook logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: sync hook logic" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
