@@ -123,4 +123,8 @@ describe("Priority State Queue", () => {
     priorityQueue.delete(tickets[2], undefined, lowestPriority);
     expect(getLayers().length).toEqual(0);
   });
+
+  it("Acts as independent FIFO queue across layers", () => {
+    //
+  });
 });
