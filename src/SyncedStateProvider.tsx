@@ -20,7 +20,7 @@ export const SyncedStateContext = React.createContext<SyncedStateContextValue>({
   },
 });
 
-const SyncedStateProvider: React.FC = ({ children }) => {
+export const SyncedStateProvider: React.FC = ({ children }) => {
   const priorityQueue = useRef(new PriorityStateQueue());
   const [top, setTop] = useState<SyncedStateContextValue["top"]>(new Map());
   const currentTicketNumber = useRef(0);

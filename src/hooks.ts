@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useContext, useEffect, useMemo, useRef, useSt
 import { SyncedStateContext } from "./SyncedStateProvider";
 import { Config, defaultLayerName, defaultPriority, QueueTicket } from "./types";
 
-export function useSyncLogic<T>(state: T, config?: Config<T>): T {
+export function useSyncedValue<T>(state: T, config?: Config<T>): T {
   const ticketNumber = useRef<QueueTicket | null>(null);
   const syncedContext = useContext(SyncedStateContext);
   const isStateFalsy = useMemo(() => config?.shouldDequeue?.(state) ?? !!state, [config, state]);
@@ -38,5 +38,5 @@ export function useSyncLogic<T>(state: T, config?: Config<T>): T {
 
 export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>] {
   const [state, setState] = useState(arg);
-  return [useSyncLogic(state, config), setState];
+  return [useSyncedValue(state, config), setState];
 }

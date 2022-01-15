@@ -44,9 +44,6 @@ export default class PriorityStateQueue {
 
   private heapify(index: number, heap: QueueTicket[]) {
     PriorityStateQueue.checkHeapIndex(index, heap);
-    if (index > heap.length || index < 0) {
-      throw new Error(`Cannot heapify at index ${index}`);
-    }
     let largest = index;
     const left = PriorityStateQueue.getLeftChildIndex(index, heap);
     const right = PriorityStateQueue.getRightChildIndex(index, heap);
@@ -111,6 +108,10 @@ export default class PriorityStateQueue {
     } else {
       // Queue empty - delete priority. Map will never have an empty queue
       layer.map.delete(priority);
+      if (layer.map.size === 0) {
+        // No entry left anymore on this layer
+        this.layers.delete(layerName);
+      }
     }
   }
 
