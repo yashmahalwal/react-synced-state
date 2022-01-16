@@ -1,7 +1,7 @@
 import PriorityStateQueue from "../src/PriorityStateQueue";
 import { defaultLayerName } from "../src";
 import Chance from "chance";
-import { QueueTicket } from "../build/types";
+import { QueueTicket } from "../src/types";
 
 const chance = new Chance();
 
