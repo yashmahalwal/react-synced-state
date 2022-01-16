@@ -249,7 +249,7 @@ describe("Priority State Queue", () => {
   });
 
   it("Acts as independent priority FIFO queues across layers", () => {
-    // Weird nomenclature due to the example I penned down
+    // Weird nomenclature due to the docs-source I penned down
 
     // Priorities
     const A = -1;

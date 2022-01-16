@@ -3,22 +3,23 @@
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
-    root: 'example',
-    workspaceRoot: "/",
-    mount: {
-        /* ... */
-    },
-    plugins: [
-        /* ... */
-    ],
-    packageOptions: {
-        /* ... */
-    },
-    devOptions: {
-        /* ... */
-    },
-    buildOptions: {
-        /* ... */
-        out: "example-build",
-    },
+  root: "docs-source",
+  workspaceRoot: "/",
+  mount: {
+    /* ... */
+  },
+  plugins: [
+    "./snowpack-source-code-plugin.js",
+    /* ... */
+  ],
+  packageOptions: {
+    /* ... */
+  },
+  devOptions: {
+    /* ... */
+  },
+  buildOptions: {
+    /* ... */
+    out: "docs",
+  },
 };
