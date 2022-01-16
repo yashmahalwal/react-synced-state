@@ -15,7 +15,3 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: Build docs
-        run: npm run docs:build
-      - name: Deploy docs
-        run: npm run deploy
