@@ -1,0 +1,12 @@
+import { T as Typography } from '../../../common/Typography-b40d1b99.js';
+export { T as default } from '../../../common/Typography-b40d1b99.js';
+import '../../../common/colorManipulator-7af06b2d.js';
+import '../../../common/_commonjsHelpers-8c19dec8.js';
+import '../../../common/index-04edb6a1.js';
+import '../../../common/extends-7477639a.js';
+import '../../../common/styled-8af018b1.js';
+import '../../../common/useThemeProps-df9debff.js';
+import '../../../common/createTheme-52608124.js';
+import '../../../common/generateUtilityClasses-eeff7b3a.js';
+import '../../../common/ClassNameGenerator-0fb33fc3.js';
+import '../../../common/extendSxProp-e84efcc5.js';

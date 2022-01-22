@@ -1,18 +1,21 @@
-import { c as createCommonjsModule, r as react, g as getDefaultExportFromCjs } from '../../common/index-8af8b000.js';
-import { a as esm, i as interopRequireDefault, e as esm$1 } from '../../common/index-c0df7cf3.js';
-
-var useEnhancedEffect = createCommonjsModule(function (module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-
-
-var _default = esm.unstable_useEnhancedEffect;
-exports.default = _default;
-});
+import { c as createCommonjsModule, g as getDefaultExportFromCjs } from '../../common/_commonjsHelpers-8c19dec8.js';
+import { i as interopRequireDefault } from '../../common/interopRequireDefault-0d249d68.js';
+import { r as react } from '../../common/index-04edb6a1.js';
+import { e as esm } from '../../common/index-47a09a79.js';
+import { u as useEnhancedEffect } from '../../common/useEnhancedEffect-6417b75f.js';
+import '../../common/colorManipulator-7af06b2d.js';
+import '../../common/extends-7477639a.js';
+import '../../common/ownerWindow-46387254.js';
+import '../../common/debounce-735db077.js';
+import '../../common/useControlled-3de1265b.js';
+import '../../common/useForkRef-fb626a2f.js';
+import '../../common/useId-820ad9b8.js';
+import '../../common/useIsFocusVisible-1ec77cac.js';
+import '../../common/getScrollbarSize-0f780b6c.js';
+import '../../common/useThemeProps-df9debff.js';
+import '../../common/createBox-462ce840.js';
+import '../../common/extendSxProp-e84efcc5.js';
+import '../../common/emotion-react.browser.esm-6b337b85.js';
 
 var useMediaQuery_1 = createCommonjsModule(function (module, exports) {
 
@@ -34,7 +37,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function useMediaQuery(queryInput, options = {}) {
-  const theme = (0, esm$1.useThemeWithoutDefault)(); // Wait for jsdom to support the match media feature.
+  const theme = (0, esm.useThemeWithoutDefault)(); // Wait for jsdom to support the match media feature.
   // All the browsers MUI support have this built-in.
   // This defensive check is here for simplicity.
   // Most of the time, the match media logic isn't central to people tests.
@@ -45,7 +48,7 @@ function useMediaQuery(queryInput, options = {}) {
     matchMedia = supportMatchMedia ? window.matchMedia : null,
     noSsr = false,
     ssrMatchMedia = null
-  } = (0, esm$1.getThemeProps)({
+  } = (0, esm.getThemeProps)({
     name: 'MuiUseMediaQuery',
     props: options,
     theme

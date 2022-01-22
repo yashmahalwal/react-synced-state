@@ -1,9 +1,33 @@
 {
   "imports": {
+    "@mui/icons-material": "./@mui/icons-material.js",
+    "@mui/icons-material/ArrowForward": "./@mui/icons-material/ArrowForward.js",
+    "@mui/material/Alert": "./@mui/material/Alert.js",
+    "@mui/material/AppBar": "./@mui/material/AppBar.js",
+    "@mui/material/Box/Box": "./@mui/material/Box/Box.js",
+    "@mui/material/Button": "./@mui/material/Button.js",
+    "@mui/material/Card": "./@mui/material/Card.js",
+    "@mui/material/CardContent": "./@mui/material/CardContent.js",
+    "@mui/material/CardHeader/CardHeader": "./@mui/material/CardHeader/CardHeader.js",
+    "@mui/material/Collapse": "./@mui/material/Collapse.js",
+    "@mui/material/Container": "./@mui/material/Container.js",
     "@mui/material/CssBaseline": "./@mui/material/CssBaseline.js",
+    "@mui/material/Dialog/Dialog": "./@mui/material/Dialog/Dialog.js",
+    "@mui/material/DialogActions/DialogActions": "./@mui/material/DialogActions/DialogActions.js",
+    "@mui/material/DialogContent/DialogContent": "./@mui/material/DialogContent/DialogContent.js",
+    "@mui/material/DialogContentText/DialogContentText": "./@mui/material/DialogContentText/DialogContentText.js",
+    "@mui/material/DialogTitle/DialogTitle": "./@mui/material/DialogTitle/DialogTitle.js",
+    "@mui/material/Drawer/Drawer": "./@mui/material/Drawer/Drawer.js",
+    "@mui/material/IconButton/IconButton": "./@mui/material/IconButton/IconButton.js",
+    "@mui/material/Toolbar": "./@mui/material/Toolbar.js",
+    "@mui/material/Typography": "./@mui/material/Typography.js",
+    "@mui/material/Typography/Typography": "./@mui/material/Typography/Typography.js",
+    "@mui/material/colors": "./@mui/material/colors.js",
     "@mui/material/styles": "./@mui/material/styles.js",
     "@mui/material/useMediaQuery": "./@mui/material/useMediaQuery.js",
+    "microlight": "./microlight.js",
     "react": "./react.js",
-    "react-dom": "./react-dom.js"
+    "react-dom": "./react-dom.js",
+    "react-router-dom": "./react-router-dom.js"
   }
 }

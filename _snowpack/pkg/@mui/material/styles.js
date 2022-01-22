@@ -1,6 +1,24 @@
-import { c as createCommonjsModule, r as react } from '../../common/index-8af8b000.js';
-import { i as interopRequireDefault, _ as _extends_1, e as esm, a as esm$1 } from '../../common/index-c0df7cf3.js';
-import { o as objectWithoutPropertiesLoose, c as createTheme_1, d as defaultTheme_1, a as createTransitions_1, u as useThemeProps_1 } from '../../common/useThemeProps-494739bf.js';
+import { c as createCommonjsModule } from '../../common/_commonjsHelpers-8c19dec8.js';
+import { i as interopRequireDefault } from '../../common/interopRequireDefault-0d249d68.js';
+import { h as _extends_1 } from '../../common/colorManipulator-7af06b2d.js';
+import { o as objectWithoutPropertiesLoose, a as createTheme_1, c as createTransitions_1, u as useThemeProps_1 } from '../../common/useThemeProps-ef3d7e2e.js';
+import { e as esm, a as esm$1 } from '../../common/index-47a09a79.js';
+import { u as useTheme_1 } from '../../common/useTheme-99381af8.js';
+import { s as styled_1 } from '../../common/styled-8576ff9b.js';
+import '../../common/index-04edb6a1.js';
+import '../../common/extends-7477639a.js';
+import '../../common/green-45c74814.js';
+import '../../common/ownerWindow-46387254.js';
+import '../../common/debounce-735db077.js';
+import '../../common/useControlled-3de1265b.js';
+import '../../common/useForkRef-fb626a2f.js';
+import '../../common/useId-820ad9b8.js';
+import '../../common/useIsFocusVisible-1ec77cac.js';
+import '../../common/getScrollbarSize-0f780b6c.js';
+import '../../common/useThemeProps-df9debff.js';
+import '../../common/createBox-462ce840.js';
+import '../../common/extendSxProp-e84efcc5.js';
+import '../../common/emotion-react.browser.esm-6b337b85.js';
 
 var adaptV4Theme_1 = createCommonjsModule(function (module, exports) {
 
@@ -354,58 +372,6 @@ function responsiveFontSizes(themeInput, options = {}) {
 }
 });
 
-var useTheme_1 = createCommonjsModule(function (module, exports) {
-
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = useTheme;
-
-var React = _interopRequireWildcard(react);
-
-
-
-var _defaultTheme = interopRequireDefault(defaultTheme_1);
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function useTheme() {
-  const theme = (0, esm.useTheme)(_defaultTheme.default);
-
-  return theme;
-}
-});
-
-var styled_1 = createCommonjsModule(function (module, exports) {
-
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.slotShouldForwardProp = exports.rootShouldForwardProp = exports.default = void 0;
-
-
-
-var _defaultTheme = interopRequireDefault(defaultTheme_1);
-
-const rootShouldForwardProp = prop => (0, esm.shouldForwardProp)(prop) && prop !== 'classes';
-
-exports.rootShouldForwardProp = rootShouldForwardProp;
-const slotShouldForwardProp = esm.shouldForwardProp;
-exports.slotShouldForwardProp = slotShouldForwardProp;
-const styled = (0, esm.createStyled)({
-  defaultTheme: _defaultTheme.default,
-  rootShouldForwardProp
-});
-var _default = styled;
-exports.default = _default;
-});
-
 var ThemeProvider = createCommonjsModule(function (module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -704,4 +670,6 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 var ThemeProvider$1 = styles.ThemeProvider;
 var createTheme = styles.createTheme;
-export { ThemeProvider$1 as ThemeProvider, createTheme };
+var styled = styles.styled;
+var useTheme = styles.useTheme;
+export { ThemeProvider$1 as ThemeProvider, createTheme, styled, useTheme };
