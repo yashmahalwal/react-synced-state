@@ -21,6 +21,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "@typescript-eslint/no-non-null-assertion": 0,
+    "no-useless-escape": 0,
   },
   settings: {
     react: {
