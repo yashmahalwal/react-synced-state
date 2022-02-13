@@ -9,18 +9,25 @@ module.exports = function () {
   return {
     name: "my-commenter-plugin",
     async transform({ contents, fileExt, srcPath }) {
-      if (fileExt === ".js") {
+      if (fileExt === ".js" && srcPath.startsWith(path.resolve("docs-source", "CodeSamples"))) {
         try {
-          const sourcePath = path.resolve(srcPath, "..", `${path.parse(srcPath).name}.tsx`);
+          const parsedPath = path.parse(srcPath);
+          if (parsedPath.name === "index") {
+            // Index files are typescript tunnels
+            return;
+          }
+          const sourcePath = path.resolve(srcPath, "..", `${parsedPath.name}.tsx`);
           const handle = await fs.open(sourcePath, "r");
           const { buffer } = await handle.read();
-          const textContents = JSON.stringify(buffer.toString());
+          const textContents = Buffer.from(
+            buffer.toString().replaceAll("\u0000", "").replaceAll("../../../src", "react-synced-state")
+          ).toString("base64");
           await handle.close();
           if (textContents.length) {
-            return `${contents}\nexport const __fileTextContents = ${textContents}`;
+            return `${contents}\nexport const __fileTextContents = '${textContents}'`;
           }
-        } catch {
-          // Do nothing - fail silently
+        } catch (e) {
+          console.error(e);
         }
       }
     },

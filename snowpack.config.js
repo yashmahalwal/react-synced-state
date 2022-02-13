@@ -8,10 +8,7 @@ module.exports = {
   mount: {
     /* ... */
   },
-  plugins: [
-    "./snowpack-source-code-plugin.js",
-    /* ... */
-  ],
+  plugins: ["./snowpack-source-code-plugin.js", "@snowpack/plugin-react-refresh" /* ... */],
   packageOptions: {
     /* ... */
   },
@@ -22,4 +19,11 @@ module.exports = {
     /* ... */
     out: "docs",
   },
+  routes: [
+    {
+      match: "routes",
+      src: ".*",
+      dest: "/index.html",
+    },
+  ],
 };

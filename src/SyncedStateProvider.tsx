@@ -23,7 +23,7 @@ export const SyncedStateContext = React.createContext<SyncedStateContextValue>({
 export const SyncedStateProvider: React.FC = ({ children }) => {
   const priorityQueue = useRef(new PriorityStateQueue());
   const [top, setTop] = useState<SyncedStateContextValue["top"]>(new Map());
-  const currentTicketNumber = useRef(0);
+  const currentTicketNumber = useRef(1);
 
   const addToQueue = useCallback((layerName?: Layer, priority?: Priority) => {
     priorityQueue.current.insert(currentTicketNumber.current, layerName, priority);
