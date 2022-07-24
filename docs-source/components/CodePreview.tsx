@@ -2,13 +2,18 @@ import React, { PropsWithChildren, useEffect, useState } from "react";
 import Collapse from "@mui/material/Collapse";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import microlight from "microlight";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box/Box";
 import IconButton from "@mui/material/IconButton/IconButton";
 import { Code, CodeOff, InfoOutlined } from "@mui/icons-material";
 import CardHeader from "@mui/material/CardHeader/CardHeader";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import { vscDarkPlus, vs } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+SyntaxHighlighter.registerLanguage("jsx", jsx);
+
 import CopyButton from "./CopyButton";
 
 interface Props {
@@ -21,14 +26,15 @@ export default function CodePreview({ sourceCode, children }: PropsWithChildren<
   const [code, setCode] = useState("");
 
   useEffect(() => {
-    setCode(window.atob(sourceCode));
+    try {
+      const code = window.atob(sourceCode);
+      console.log(code);
+      setCode(code);
+    } catch {
+      // Fail silently
+    }
   }, [sourceCode]);
 
-  useEffect(() => {
-    if (showCode) {
-      microlight.reset();
-    }
-  }, [palette.mode, showCode]);
   return (
     <div
       style={{
@@ -75,21 +81,18 @@ export default function CodePreview({ sourceCode, children }: PropsWithChildren<
           overflow={"auto"}
           border={1}
           borderColor={"primary.main"}
-          padding={2}
           borderTop={0}
         >
-          <code
-            className={"microlight"}
-            style={{
-              fontSize: 12,
-              fontWeight: 600,
-              whiteSpace: "pre",
-              color: palette.primary.light,
-              userSelect: "initial",
-            }}
-          >
-            <pre>{code}</pre>
-          </code>
+          {
+            <SyntaxHighlighter
+              customStyle={{ margin: 0, padding: 6, fontSize: "13px !important" }}
+              key={sourceCode}
+              language={"typescript"}
+              style={palette.mode === "dark" ? vscDarkPlus : vs}
+            >
+              {code}
+            </SyntaxHighlighter>
+          }
         </Box>
       </Collapse>
     </div>

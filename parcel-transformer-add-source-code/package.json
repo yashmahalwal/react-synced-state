@@ -1,0 +1,24 @@
+{
+  "name": "@yashmahalwal/parcel-transformer-add-source-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "parcel": "2.x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/plugin": "^2.6.2"
+  },
+  "peerDependencies": {
+    "parcel": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.6"
+  }
+}

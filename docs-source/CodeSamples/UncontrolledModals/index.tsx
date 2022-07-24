@@ -1,5 +1,5 @@
-export { default, __fileTextContents as SourceCode } from "./UncontrolledModals";
+export { default, __sourceCode as SourceCode } from "./UncontrolledModals";
 
 declare module "./UncontrolledModals" {
-  export const __fileTextContents: string;
+  export const __sourceCode: string;
 }

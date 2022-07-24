@@ -7,8 +7,10 @@ import Home from "./Pages/Home";
 import { themeOptions } from "./components/theme";
 import { useEffect, useState } from "react";
 import Problem from "./Pages/Problem";
-import QuickStart from "./Pages/QuickStart";
+// import QuickStart from "./Pages/QuickStart";
 import { SyncedStateProvider } from "../src";
+// import Navigation from "./components/Navigation";
+// import MainConcepts from "./Pages/MainConcepts";
 
 export default function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -24,7 +26,7 @@ export default function App() {
         ...themeOptions,
         palette: {
           ...themeOptions.palette,
-          mode: darkMode ? "dark" : "light",
+          mode: !darkMode ? "dark" : "light",
         },
       }),
     [darkMode]
@@ -38,7 +40,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/problem" element={<Problem />} />
-            <Route path="/quick-start" element={<QuickStart />} />
+            {/*<Route path="/quick-start" element={<QuickStart />} />*/}
+            {/*<Route path="/main-concepts" element={<MainConcepts />} />*/}
           </Routes>
         </SyncedStateProvider>
       </BrowserRouter>

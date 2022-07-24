@@ -39,6 +39,7 @@ export default function Home() {
               display={"flex"}
               alignItems={"center"}
               borderColor={"primary.main"}
+              sx={{ userSelect: "none" }}
             >
               <Typography color={"textSecondary"} marginLeft={1} fontWeight={600}>
                 <code>$ npm i react-synced-state&nbsp;</code>

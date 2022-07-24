@@ -47,8 +47,8 @@ export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, D
   const [state, setState] = useState(arg);
   useEffect(() => {
     // Only initial value matters
-    if (!checkFalsiness(arg, config)) {
-      throw new Error(`Initial state value ${arg} for synced state should pass falsiness check`);
+    if (!checkFalsiness(state, config)) {
+      throw new Error(`Initial state value ${arg}: (evaluates to ${state}) for synced state should pass falsy check`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

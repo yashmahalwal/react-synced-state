@@ -1,13 +1,13 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Dialog, { DialogProps } from "@mui/material/Dialog/Dialog";
-import DialogActions from "@mui/material/DialogActions/DialogActions";
-import DialogContent from "@mui/material/DialogContent/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
-import Drawer from "@mui/material/Drawer/Drawer";
+import Dialog, { DialogProps } from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Drawer from "@mui/material/Drawer";
 import Snackbar from "@mui/material/Snackbar";
-import Typography from "@mui/material/Typography/Typography";
+import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 
 interface ModalProps extends DialogProps {
@@ -56,7 +56,7 @@ export default function UncontrolledModals() {
       />
       <Snackbar open={successAlertOpen}>
         <Alert severity={"success"} variant={"filled"} onClose={() => setSuccessAlertOpen(false)}>
-          This is a success alert! Yoo-hoo!
+          Alert 1: This is a success alert! Yoo-hoo!
         </Alert>
       </Snackbar>
       <Button variant={"contained"} onClick={openModals}>
@@ -74,7 +74,7 @@ export default function UncontrolledModals() {
       />
       <Drawer open={drawerOpen} anchor={"right"} onClose={() => setDrawerOpen(false)}>
         <Typography variant={"h1"} sx={{ margin: [1, 2] }}>
-          Hello World
+          Drawer 1: Hello World
         </Typography>
         <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
           Close

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { PropsWithChildren, useCallback, useMemo, useRef, useState } from "react";
 import PriorityStateQueue from "./PriorityStateQueue";
 import { Layer, Priority, QueueTicket } from "./types";
 
@@ -20,7 +20,7 @@ export const SyncedStateContext = React.createContext<SyncedStateContextValue>({
   },
 });
 
-export const SyncedStateProvider: React.FC = ({ children }) => {
+export const SyncedStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const priorityQueue = useRef(new PriorityStateQueue());
   const [top, setTop] = useState<SyncedStateContextValue["top"]>(new Map());
   const currentTicketNumber = useRef(1);

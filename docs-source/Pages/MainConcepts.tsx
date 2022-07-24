@@ -29,18 +29,50 @@ function Component(){
 }
 `;
 
-export default function QuickStart() {
+export default function MainConcepts() {
   const theme = useTheme();
   return (
     <Container sx={{ padding: 6 }} maxWidth={"lg"}>
       <Typography gutterBottom variant={"h4"} fontWeight={"bold"} component={"h1"}>
-        Quick Start
+        Main Concepts
       </Typography>
       <section>
         <article>
-          <Typography variant={"body1"}>
-            Using this utility is pretty straightforward. Here&apos;s what you need to do:
+          <Typography variant={"body1"} mb={3}>
+            Now that we have seen the hook in action, let us try to understand how everything works and how to use this
+            hook to manage states as per your will. We look at the basic principle and them move on to advance usage and
+            customisations.
           </Typography>
+
+          <section>
+            <Typography gutterBottom variant={"h5"} fontWeight={"bold"} component={"h2"}>
+              Synchronisation logic
+            </Typography>
+            <Typography variant={"body1"} mb={3}>
+              There might be multiple state updates firing off in your app. You can align all of these updates using
+              this hook. Here, we describe the basic synchronisation logic with the default behaviour. This can be
+              further tuned and customised using parameters:
+              <ol>
+                <li style={{ margin: theme.spacing(2, 0) }}>
+                  Naturally, we need a global point where we collect information about all the state updates. That point
+                  is provided by <code>SyncedStateProvider</code> and it is called{" "}
+                  <em>
+                    <strong>layer</strong>
+                  </em>
+                  . To synchronise different groups of state updates, we can have mutliple independent layers
+                </li>
+                <li style={{ margin: theme.spacing(2, 0) }}>
+                  Now we need to connect our components to the layer. Wherever <code>useSyncedState</code> hooks is
+                  used, an entry point is created. This entry point connects to the global layer. This hook maintains a
+                  state variable like <code>useState</code> hook.
+                </li>
+                <li style={{ margin: theme.spacing(2, 0) }}>
+                  Layer maintains a queue of all the entry points. Whenever a state update is made via{" "}
+                  <code>useSyncedState</code> hook, we check if this
+                </li>
+              </ol>
+            </Typography>
+          </section>
           <ul>
             <li>
               Import and add <code>SyncedStateProvider</code> at the top of your app
@@ -89,7 +121,7 @@ export default function QuickStart() {
               }}
               variant={"outlined"}
               endIcon={<ArrowForward />}
-              to={"/main-concepts"}
+              to={"/"}
             >
               Main Concepts
             </LinkButton>

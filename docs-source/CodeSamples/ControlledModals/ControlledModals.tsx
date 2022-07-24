@@ -1,11 +1,11 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Dialog, { DialogProps } from "@mui/material/Dialog/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import Drawer from "@mui/material/Drawer";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import Drawer from "@mui/material/Drawer/Drawer";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { useSyncedState } from "../../../src";
@@ -16,9 +16,10 @@ interface ModalProps extends DialogProps {
   body: React.ReactNode;
 
   onClose?(): void;
+  name?: string;
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
+const Modal: React.FunctionComponent<ModalProps> = ({ heading, name, body, ...props }) => {
   return (
     <Dialog {...props}>
       <DialogTitle>{heading}</DialogTitle>
@@ -27,7 +28,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props })
       </DialogContent>
       <DialogActions>
         <Button onClick={props.onClose} aria-label={"close"}>
-          Close
+          Close {name}
         </Button>
         <Button onClick={props.onClose}>Agree</Button>
       </DialogActions>
@@ -50,6 +51,7 @@ export default function ControlledModals() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Modal
+        name={"Dialog 1"}
         body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pretium tristique tincidunt. Duis eget nisi ut diam consequat vulputate at ut diam.`}
         heading={"Dialog 1: Lorem Ipsum Dolor Sit Amet"}
         open={firstDialogOpen}
@@ -64,6 +66,7 @@ export default function ControlledModals() {
         Click Me
       </Button>
       <Modal
+        name={"Dialog 2"}
         body={new Array(20)
           .fill(
             `Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare, mi nunc laoreet est, ac semper lectus justo eu est. Donec quis convallis ligula, eget facilisis lacus.`
@@ -78,7 +81,7 @@ export default function ControlledModals() {
           Drawer 1: Hello World
         </Typography>
         <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
-          Close
+          Close Drawer 1
         </Button>
       </Drawer>
     </div>
