@@ -49,8 +49,8 @@ export default function UncontrolledModals() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Modal
+        heading={"Dialog 1"}
         body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pretium tristique tincidunt. Duis eget nisi ut diam consequat vulputate at ut diam.`}
-        heading={"Dialog 1: Lorem Ipsum Dolor Sit Amet"}
         open={firstDialogOpen}
         onClose={() => setFirstDialogOpen(false)}
       />
@@ -63,18 +63,18 @@ export default function UncontrolledModals() {
         Click Me
       </Button>
       <Modal
+        heading={"Dialog 2"}
         body={new Array(20)
           .fill(
             `Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare, mi nunc laoreet est, ac semper lectus justo eu est. Donec quis convallis ligula, eget facilisis lacus.`
           )
           .join("\n")}
-        heading={"Dialog 2: Lorem Ipsum Dolor Sit Amet"}
         open={secondDialogOpen}
         onClose={() => setSecondDialogOpen(false)}
       />
       <Drawer open={drawerOpen} anchor={"right"} onClose={() => setDrawerOpen(false)}>
         <Typography variant={"h1"} sx={{ margin: [1, 2] }}>
-          Drawer 1: Hello World
+          Drawer 1
         </Typography>
         <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
           Close

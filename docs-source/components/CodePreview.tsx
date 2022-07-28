@@ -85,7 +85,7 @@ export default function CodePreview({ sourceCode, children }: PropsWithChildren<
         >
           {
             <SyntaxHighlighter
-              customStyle={{ margin: 0, padding: 6, fontSize: "13px !important" }}
+              customStyle={{ fontSize: "13px !important", margin: 0 }}
               key={sourceCode}
               language={"typescript"}
               style={palette.mode === "dark" ? vscDarkPlus : vs}

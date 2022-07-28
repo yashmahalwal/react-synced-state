@@ -26,7 +26,7 @@ export default function App() {
         ...themeOptions,
         palette: {
           ...themeOptions.palette,
-          mode: !darkMode ? "dark" : "light",
+          mode: darkMode ? "dark" : "light",
         },
       }),
     [darkMode]
