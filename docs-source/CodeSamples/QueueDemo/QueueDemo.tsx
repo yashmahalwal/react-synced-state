@@ -89,9 +89,9 @@ export default function QueueDemo() {
       </Box>
       <Box>
         <FormGroup>
-          <FormControlLabel label={`Synced State 1`} control={<Checkbox checked={syncedState1} />} />
-          <FormControlLabel label={`Synced State 2`} control={<Checkbox checked={syncedState2} />} />
-          <FormControlLabel label={`Synced State 3`} control={<Checkbox checked={syncedState3} />} />
+          <FormControlLabel label={`Synced State 1`} control={<Checkbox disabled checked={syncedState1} />} />
+          <FormControlLabel label={`Synced State 2`} control={<Checkbox disabled checked={syncedState2} />} />
+          <FormControlLabel label={`Synced State 3`} control={<Checkbox disabled checked={syncedState3} />} />
         </FormGroup>
       </Box>
     </Box>
