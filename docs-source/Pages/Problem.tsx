@@ -4,10 +4,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import UncontrolledModals, { SourceCode } from "../CodeSamples/UncontrolledModals";
 import CodePreview from "../components/CodePreview";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import LinkButton from "../components/LinkButton";
-import { ArrowBack } from "@mui/icons-material";
-import Grid from "@mui/material/Grid";
+import Footer from "../components/Footer";
 
 export default function Problem() {
   const theme = useTheme();
@@ -50,34 +47,16 @@ export default function Problem() {
           </Typography>
         </article>
       </section>
-      <footer style={{ marginTop: theme.spacing(4) }}>
-        <Grid container justifyContent={"space-between"}>
-          <Grid item>
-            <LinkButton
-              sx={{
-                marginTop: 2,
-              }}
-              variant={"outlined"}
-              startIcon={<ArrowBack />}
-              to={"/"}
-            >
-              Home
-            </LinkButton>
-          </Grid>
-          <Grid item>
-            <LinkButton
-              sx={{
-                marginTop: 2,
-              }}
-              variant={"outlined"}
-              endIcon={<ArrowForward />}
-              to={"/quick-start"}
-            >
-              Quick Start
-            </LinkButton>
-          </Grid>
-        </Grid>
-      </footer>
+      <Footer
+        back={{
+          route: "/",
+          label: "Home",
+        }}
+        forward={{
+          route: "/quick-start",
+          label: "Quick Start",
+        }}
+      />
     </Container>
   );
 }

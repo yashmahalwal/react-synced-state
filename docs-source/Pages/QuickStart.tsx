@@ -4,30 +4,45 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import ControlledModals, { SourceCode } from "../CodeSamples/ControlledModals";
 import CodePreview from "../components/CodePreview";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import LinkButton from "../components/LinkButton";
-import Grid from "@mui/material/Grid";
-import { ArrowBack } from "@mui/icons-material";
-import SnippetBlock from "../components/SnippetBlock";
+import CodeSnippet from "../components/CodeSnippet";
+import Footer from "../components/Footer";
 
-const appCode = `// App.jsx
-import {SyncedQueueProvider} from \'react-synced-state\';
+const steps = [
+  {
+    label: <>Install the package in your app. It only has one (peer) dependency - React.</>,
+    code: "npm i react-synced-state",
+  },
+  {
+    label: (
+      <>
+        Import and add <code>SyncedStateProvider</code> at the top of your app
+      </>
+    ),
+    code: `// App.jsx
+import {SyncedQueueProvider} from 'react-synced-state';
 
 function App(){
-  return < SyncedQueueProvider>
+  return <SyncedQueueProvider>
      ...
   </SyncedQueueProvider>
-}`;
-
-const hookCode = `// Component.jsx
-import {useSyncedState} from \'react-synced-state\';
+}`,
+  },
+  {
+    label: (
+      <>
+        Replace <code>useState</code> with <code>useSyncedState</code>
+      </>
+    ),
+    code: `// Component.jsx
+import {useSyncedState} from 'react-synced-state';
 
 function Component(){
   const [open, setOpen] = useSyncedState(false);
   
   return ...
-}
-`;
+}`,
+  },
+];
 
 export default function QuickStart() {
   const theme = useTheme();
@@ -41,20 +56,24 @@ export default function QuickStart() {
           <Typography variant={"body1"}>
             Using this utility is pretty straightforward. Here&apos;s what you need to do:
           </Typography>
-          <ul>
-            <li>
-              Import and add <code>SyncedStateProvider</code> at the top of your app
-              <SnippetBlock code={appCode} />
-            </li>
-            <li
-              style={{
-                marginTop: theme.spacing(1),
-              }}
-            >
-              Replace <code>useState</code> with <code>useSyncedState</code>
-              <SnippetBlock code={hookCode} />
-            </li>
-          </ul>
+          <ol style={{ margin: theme.spacing(1, 0, 0, 0) }}>
+            {steps.map(({ code, label }, index) => (
+              <li key={index} style={{ paddingTop: theme.spacing(2) }}>
+                {label}
+                <CodeSnippet
+                  customStyle={{
+                    borderWidth: 1,
+                    borderStyle: "solid",
+                    borderColor: theme.palette.grey[400],
+                    borderRadius: theme.spacing(1),
+                    marginTop: theme.spacing(1),
+                  }}
+                >
+                  {code}
+                </CodeSnippet>
+              </li>
+            ))}
+          </ol>
           <Typography marginTop={4} variant={"body1"} gutterBottom>
             That&apos;s it! All the popups will open one by one now. Try it out by clicking the button below:
           </Typography>
@@ -68,34 +87,16 @@ export default function QuickStart() {
           </Typography>
         </article>
       </section>
-      <footer style={{ marginTop: theme.spacing(4) }}>
-        <Grid container justifyContent={"space-between"}>
-          <Grid item>
-            <LinkButton
-              sx={{
-                marginTop: 2,
-              }}
-              variant={"outlined"}
-              startIcon={<ArrowBack />}
-              to={"/problem"}
-            >
-              The Problem
-            </LinkButton>
-          </Grid>
-          <Grid item>
-            <LinkButton
-              sx={{
-                marginTop: 2,
-              }}
-              variant={"outlined"}
-              endIcon={<ArrowForward />}
-              to={"/main-concepts"}
-            >
-              Main Concepts
-            </LinkButton>
-          </Grid>
-        </Grid>
-      </footer>
+      <Footer
+        back={{
+          route: "/problem",
+          label: "The Problem",
+        }}
+        forward={{
+          route: "/main-concepts",
+          label: "Main Concepts",
+        }}
+      />
     </Container>
   );
 }

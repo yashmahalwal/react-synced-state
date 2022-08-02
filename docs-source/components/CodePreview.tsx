@@ -8,13 +8,8 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import { Code, CodeOff, InfoOutlined } from "@mui/icons-material";
 import CardHeader from "@mui/material/CardHeader/CardHeader";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
-import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
-import { vscDarkPlus, vs } from "react-syntax-highlighter/dist/esm/styles/prism";
-
-SyntaxHighlighter.registerLanguage("jsx", jsx);
-
 import CopyButton from "./CopyButton";
+import CodeSnippet from "./CodeSnippet";
 
 interface Props {
   sourceCode: string;
@@ -22,14 +17,12 @@ interface Props {
 
 export default function CodePreview({ sourceCode, children }: PropsWithChildren<Props>) {
   const [showCode, setShowCode] = useState(false);
-  const { palette, spacing } = useTheme();
+  const { spacing } = useTheme();
   const [code, setCode] = useState("");
 
   useEffect(() => {
     try {
-      const code = window.atob(sourceCode);
-      console.log(code);
-      setCode(code);
+      setCode(window.atob(sourceCode));
     } catch {
       // Fail silently
     }
@@ -83,16 +76,7 @@ export default function CodePreview({ sourceCode, children }: PropsWithChildren<
           borderColor={"primary.main"}
           borderTop={0}
         >
-          {
-            <SyntaxHighlighter
-              customStyle={{ fontSize: "13px !important", margin: 0 }}
-              key={sourceCode}
-              language={"typescript"}
-              style={palette.mode === "dark" ? vscDarkPlus : vs}
-            >
-              {code}
-            </SyntaxHighlighter>
-          }
+          <CodeSnippet>{code}</CodeSnippet>
         </Box>
       </Collapse>
     </div>
