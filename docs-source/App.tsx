@@ -1,24 +1,71 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useRef } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { themeOptions } from "./components/theme";
+import { BrowserRouter, Outlet, useLocation } from "react-router-dom";
+import { Routes, Route, useLoadingContext, topbar } from "react-router-loading";
+import { primaryColor, themeOptions } from "./components/theme";
 import { useEffect, useState } from "react";
 import { SyncedStateProvider } from "../src";
 import NotFound from "./Pages/NotFound";
-
-const Home = lazy(() => import("./Pages/Home"));
+import Home from "./Pages/Home";
 const Problem = lazy(() => import("./Pages/Problem"));
 const QuickStart = lazy(() => import("./Pages/QuickStart"));
 const MainConcepts = lazy(() => import("./Pages/MainConcepts"));
 const Queueing = lazy(() => import("./Pages/MainConcepts/Queueing"));
 
-function BaseApp() {
+topbar.config({
+  barThickness: 2,
+  barColors: {
+    0: primaryColor,
+    1: primaryColor,
+  },
+});
+
+function Loader() {
+  const { done } = useLoadingContext();
+  useEffect(() => {
+    done();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+}
+
+function SuspenseWrapper() {
+  const { pathname } = useLocation();
   return (
     <Suspense fallback={null}>
+      <Loader key={pathname} />
       <Outlet />
     </Suspense>
+  );
+}
+
+const paths: (({ path: string } | { index: true }) & { element: React.ReactNode })[] = [
+  { index: true, element: <Home /> },
+  { path: "/problem", element: <Problem /> },
+  { path: "/quick-start", element: <QuickStart /> },
+  { path: "/main-concepts", element: <MainConcepts /> },
+  { path: "/main-concepts/queueing", element: <Queueing /> },
+];
+
+function Router() {
+  const { pathname } = useLocation();
+
+  const cache = useRef(new Set<string>());
+  useEffect(() => {
+    cache.current.add(pathname);
+  }, [pathname]);
+
+  return (
+    <Routes>
+      <Route path={"/"} element={<SuspenseWrapper />}>
+        {paths.map((props) => (
+          <Route {...props} key={"path" in props ? props.path : "index-path"} loading />
+        ))}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
@@ -53,16 +100,7 @@ export default function App() {
         <CssBaseline />
         <BrowserRouter>
           <SyncedStateProvider>
-            <Routes>
-              <Route path={"/"} element={<BaseApp />}>
-                <Route index element={<Home />} />
-                <Route path="/problem" element={<Problem />} />
-                <Route path="/quick-start" element={<QuickStart />} />
-                <Route path="/main-concepts" element={<MainConcepts />} />
-                <Route path="/main-concepts/queueing" element={<Queueing />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
+            <Router />
           </SyncedStateProvider>
         </BrowserRouter>
       </ThemeProvider>

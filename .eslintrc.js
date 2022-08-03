@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-non-null-assertion": 0,
     "no-useless-escape": 0,
+    "react/prop-types": 0
   },
   settings: {
     react: {

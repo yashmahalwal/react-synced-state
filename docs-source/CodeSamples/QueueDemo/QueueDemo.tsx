@@ -32,8 +32,8 @@ export default function QueueDemo() {
       justifyContent={"space-around"}
       sx={{
         flexDirection: {
-          xs: "column",
-          sm: "row",
+          sm: "column",
+          md: "row",
         },
       }}
     >
