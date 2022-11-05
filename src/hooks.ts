@@ -18,12 +18,12 @@ export function useSyncedValue<T>(state: T, config?: Config<T>): T {
   // Use effect not needed but it is 'reactive' to specify side effects
   useEffect(
     () => {
-      if (!isAtFrontOfQueue) {
+      if (isStateFalsy) {
         oldStateValue.current = state;
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isAtFrontOfQueue]
+    [isStateFalsy]
   );
 
   useEffect(() => {

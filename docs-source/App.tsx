@@ -13,6 +13,7 @@ const Problem = lazy(() => import("./Pages/Problem"));
 const QuickStart = lazy(() => import("./Pages/QuickStart"));
 const MainConcepts = lazy(() => import("./Pages/MainConcepts"));
 const Queueing = lazy(() => import("./Pages/MainConcepts/Queueing"));
+const Priority = lazy(() => import("./Pages/MainConcepts/Priority"));
 
 topbar.config({
   barThickness: 2,
@@ -47,6 +48,7 @@ const paths: (({ path: string } | { index: true }) & { element: React.ReactNode 
   { path: "/quick-start", element: <QuickStart /> },
   { path: "/main-concepts", element: <MainConcepts /> },
   { path: "/main-concepts/queueing", element: <Queueing /> },
+  { path: "/main-concepts/priority", element: <Priority /> },
 ];
 
 function Router() {
