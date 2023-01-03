@@ -1,5 +1,5 @@
-export { default, __sourceCode as SourceCode } from "./UncontrolledModals";
+export { default, __sourceCode as SourceCode } from "./LayersDemo";
 
-declare module "./UncontrolledModals" {
+declare module "./LayersDemo" {
   export const __sourceCode: string;
 }

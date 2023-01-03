@@ -107,9 +107,9 @@ export default function Queueing() {
             </li>
             <li>
               If the ID is not at the front of queue but current state is <code>truthy</code>,{" "}
-              <code>last falsy value</code> is returned. Even if you keep on updating to other <code>truthy</code>{" "}
-              values, the <code>last falsy value</code> will be returned. When the ID goes to the front of the queue,
-              the latest truthy value will be returned
+              <code>oldStateValue</code> is returned. Even if you keep on updating to other <code>truthy</code> values,
+              the <code>last falsy value</code> will be returned. When the ID goes to the front of the queue, the latest
+              truthy value will be returned
             </li>
             <li>If the ID is in queue and the component unmounts, ID is removed from the queue.</li>
           </ol>

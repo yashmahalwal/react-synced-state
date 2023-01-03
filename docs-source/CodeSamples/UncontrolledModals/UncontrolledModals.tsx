@@ -1,38 +1,10 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Dialog, { DialogProps } from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Drawer from "@mui/material/Drawer";
 import Snackbar from "@mui/material/Snackbar";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
-
-interface ModalProps extends DialogProps {
-  heading: React.ReactNode;
-  body: React.ReactNode;
-
-  onClose?(): void;
-}
-
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
-  return (
-    <Dialog {...props}>
-      <DialogTitle>{heading}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{body}</DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.onClose} aria-label={"close"}>
-          Close
-        </Button>
-        <Button onClick={props.onClose}>Agree</Button>
-      </DialogActions>
-    </Dialog>
-  );
-};
+import Modal from "../../components/Modal";
 
 export default function UncontrolledModals() {
   const [firstDialogOpen, setFirstDialogOpen] = useState(false);

@@ -1,49 +1,30 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Dialog, { DialogProps } from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import Drawer from "@mui/material/Drawer";
 import Snackbar from "@mui/material/Snackbar";
-import Typography from "@mui/material/Typography";
-import React, { useState } from "react";
+import React from "react";
+import Modal from "../../components/Modal";
+import { useSyncedState } from "../../../src";
 
-interface ModalProps extends DialogProps {
-  heading: React.ReactNode;
-  body: React.ReactNode;
-
-  onClose?(): void;
+enum Layers {
+  DIALOG = "DIALOG",
+  NOTFICATIONS = "NOTIFICATIONS",
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
-  return (
-    <Dialog {...props}>
-      <DialogTitle>{heading}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{body}</DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.onClose} aria-label={"close"}>
-          Close
-        </Button>
-        <Button onClick={props.onClose}>Agree</Button>
-      </DialogActions>
-    </Dialog>
-  );
-};
+export default function LayersDemo() {
+  const [firstDialogOpen, setFirstDialogOpen] = useSyncedState(false, { layer: Layers.DIALOG });
+  const [secondDialogOpen, setSecondDialogOpen] = useSyncedState(false, { layer: Layers.DIALOG });
+  const [thirdDialogOpen, setThirdDialogOpen] = useSyncedState(false, { layer: Layers.DIALOG });
+  const [firstAlertOpen, setFirstAlertOpen] = useSyncedState(false, { layer: Layers.NOTFICATIONS });
+  const [secondAlertOpen, setSecondAlertOpen] = useSyncedState(false, { layer: Layers.NOTFICATIONS });
+  const [thirdAlertOpen, setThirdAlertOpen] = useSyncedState(false, { layer: Layers.NOTFICATIONS });
 
-export default function UncontrolledModals() {
-  const [firstDialogOpen, setFirstDialogOpen] = useState(false);
-  const [secondDialogOpen, setSecondDialogOpen] = useState(false);
-  const [successAlertOpen, setSuccessAlertOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const openModals = () => {
+    setFirstAlertOpen(true);
     setFirstDialogOpen(true);
-    setTimeout(() => setSuccessAlertOpen(true), 500);
-    setTimeout(() => setSecondDialogOpen(true), 100);
-    setDrawerOpen(true);
+    setTimeout(() => setSecondDialogOpen(true), 200);
+    setTimeout(() => setSecondAlertOpen(true), 300);
+    setTimeout(() => setThirdAlertOpen(true), 500);
+    setTimeout(() => setThirdDialogOpen(true), 500);
   };
 
   return (
@@ -60,35 +41,36 @@ export default function UncontrolledModals() {
         open={firstDialogOpen}
         onClose={() => setFirstDialogOpen(false)}
       />
-      <Snackbar open={successAlertOpen}>
-        <Alert severity={"success"} variant={"filled"} onClose={() => setSuccessAlertOpen(false)}>
+      <Modal
+        heading={"Dialog 2"}
+        body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
+        open={secondDialogOpen}
+        onClose={() => setSecondDialogOpen(false)}
+      />
+      <Modal
+        heading={"Dialog 3"}
+        body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
+        open={thirdDialogOpen}
+        onClose={() => setThirdDialogOpen(false)}
+      />
+      <Snackbar open={firstAlertOpen}>
+        <Alert severity={"success"} variant={"filled"} onClose={() => setFirstAlertOpen(false)}>
           Alert 1: This is a success alert! Yoo-hoo!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={secondAlertOpen}>
+        <Alert severity={"warning"} variant={"filled"} onClose={() => setSecondAlertOpen(false)}>
+          Alert 2: This is a warning alert! Oops!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={thirdAlertOpen}>
+        <Alert severity={"error"} variant={"filled"} onClose={() => setThirdAlertOpen(false)}>
+          Alert 3: This is an error alert! Uh-Oh!
         </Alert>
       </Snackbar>
       <Button variant={"contained"} onClick={openModals}>
         Click Me
       </Button>
-      <Modal
-        heading={"Dialog 2"}
-        body={new Array(20)
-          .fill(`Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare`)
-          .join("\n")}
-        open={secondDialogOpen}
-        onClose={() => setSecondDialogOpen(false)}
-      />
-      <Drawer open={drawerOpen} anchor={"right"} onClose={() => setDrawerOpen(false)}>
-        <Typography
-          variant={"h1"}
-          sx={{
-            margin: [1, 2],
-          }}
-        >
-          Drawer 1
-        </Typography>
-        <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
-          Close
-        </Button>
-      </Drawer>
     </div>
   );
 }

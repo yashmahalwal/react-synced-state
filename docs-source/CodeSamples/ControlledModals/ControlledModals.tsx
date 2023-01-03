@@ -1,39 +1,11 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Dialog, { DialogProps } from "@mui/material/Dialog/Dialog";
-import DialogActions from "@mui/material/DialogActions/DialogActions";
-import DialogContent from "@mui/material/DialogContent/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
 import Drawer from "@mui/material/Drawer/Drawer";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { useSyncedState } from "../../../src";
 import Snackbar from "@mui/material/Snackbar";
-
-interface ModalProps extends DialogProps {
-  heading: React.ReactNode;
-  body: React.ReactNode;
-
-  onClose?(): void;
-}
-
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
-  return (
-    <Dialog {...props}>
-      <DialogTitle>{heading}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{body}</DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.onClose} aria-label={"close"}>
-          Close
-        </Button>
-        <Button onClick={props.onClose}>Agree</Button>
-      </DialogActions>
-    </Dialog>
-  );
-};
+import Modal from "../../components/Modal";
 
 export default function ControlledModals() {
   const [firstDialogOpen, setFirstDialogOpen] = useSyncedState(false);
@@ -50,7 +22,6 @@ export default function ControlledModals() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Modal
-        name={"Dialog 1"}
         body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
         heading={"Dialog 1"}
         open={firstDialogOpen}
@@ -65,7 +36,6 @@ export default function ControlledModals() {
         Click Me
       </Button>
       <Modal
-        name={"Dialog 2"}
         body={new Array(20)
           .fill(`Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare`)
           .join("\n")}
