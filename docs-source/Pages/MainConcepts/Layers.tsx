@@ -56,7 +56,8 @@ export default function Layers() {
           </CodeSnippet>
           <Typography variant={"body1"} gutterBottom>
             The default layer of a update is exported as <code>defaultLayerName</code> in the package. You can combine
-            layers and priorities to order the updates as you&apos;d like them. Checkout the examples section for ideas.
+            layers and priorities to order the updates as you&apos;d like them. Checkout the advanced examples section
+            for ideas.
           </Typography>
           <CodePreview sourceCode={SourceCode}>
             <LayersDemo />
@@ -65,12 +66,12 @@ export default function Layers() {
       </section>
       <Footer
         back={{
-          route: "/main-concepts",
-          label: "Main Concepts",
+          route: "/main-concepts/priority",
+          label: "Priority",
         }}
         forward={{
-          route: "/main-concepts/layers",
-          label: "Layers",
+          route: "/examples",
+          label: "Examples",
         }}
       />
     </Container>
