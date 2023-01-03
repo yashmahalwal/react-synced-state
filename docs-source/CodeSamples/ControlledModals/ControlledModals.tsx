@@ -16,10 +16,9 @@ interface ModalProps extends DialogProps {
   body: React.ReactNode;
 
   onClose?(): void;
-  name?: string;
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, name, body, ...props }) => {
+const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
   return (
     <Dialog {...props}>
       <DialogTitle>{heading}</DialogTitle>
@@ -28,7 +27,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({ heading, name, body, ...pr
       </DialogContent>
       <DialogActions>
         <Button onClick={props.onClose} aria-label={"close"}>
-          Close {name}
+          Close
         </Button>
         <Button onClick={props.onClose}>Agree</Button>
       </DialogActions>
@@ -52,8 +51,8 @@ export default function ControlledModals() {
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Modal
         name={"Dialog 1"}
-        body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pretium tristique tincidunt. Duis eget nisi ut diam consequat vulputate at ut diam.`}
-        heading={"Dialog 1: Lorem Ipsum Dolor Sit Amet"}
+        body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
+        heading={"Dialog 1"}
         open={firstDialogOpen}
         onClose={() => setFirstDialogOpen(false)}
       />
@@ -68,20 +67,18 @@ export default function ControlledModals() {
       <Modal
         name={"Dialog 2"}
         body={new Array(20)
-          .fill(
-            `Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare, mi nunc laoreet est, ac semper lectus justo eu est. Donec quis convallis ligula, eget facilisis lacus.`
-          )
+          .fill(`Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare`)
           .join("\n")}
-        heading={"Dialog 2: Lorem Ipsum Dolor Sit Amet"}
+        heading={"Dialog 2"}
         open={secondDialogOpen}
         onClose={() => setSecondDialogOpen(false)}
       />
       <Drawer open={drawerOpen} anchor={"right"} onClose={() => setDrawerOpen(false)}>
         <Typography variant={"h1"} sx={{ margin: [1, 2] }}>
-          Drawer 1: Hello World
+          Drawer 1
         </Typography>
         <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
-          Close Drawer 1
+          Close
         </Button>
       </Drawer>
     </div>

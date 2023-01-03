@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { SyncedStateProvider } from "../src";
 import NotFound from "./Pages/NotFound";
 import Home from "./Pages/Home";
+import Layers from "./Pages/MainConcepts/Layers";
 const Problem = lazy(() => import("./Pages/Problem"));
 const QuickStart = lazy(() => import("./Pages/QuickStart"));
 const MainConcepts = lazy(() => import("./Pages/MainConcepts"));
@@ -49,6 +50,7 @@ const paths: (({ path: string } | { index: true }) & { element: React.ReactNode 
   { path: "/main-concepts", element: <MainConcepts /> },
   { path: "/main-concepts/queueing", element: <Queueing /> },
   { path: "/main-concepts/priority", element: <Priority /> },
+  { path: "/main-concepts/layers", element: <Layers /> },
 ];
 
 function Router() {

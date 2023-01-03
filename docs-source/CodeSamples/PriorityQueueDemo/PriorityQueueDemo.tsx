@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { useSyncedState } from "../../../src";
+import { defaultPriority, useSyncedState } from "../../../src";
 import { Typography } from "@mui/material";
 
 export default function PreviewQueueDemo() {
-  const [syncedState1, setSyncedState1] = useSyncedState(false, { priority: 1 });
-  const [syncedState2, setSyncedState2] = useSyncedState(false, { priority: 2 });
-  const [syncedState3, setSyncedState3] = useSyncedState(false, { priority: 3 });
+  const [syncedState1, setSyncedState1] = useSyncedState(false);
+  const [syncedState2, setSyncedState2] = useSyncedState(false, { priority: defaultPriority + 1 });
+  const [syncedState3, setSyncedState3] = useSyncedState(false, { priority: defaultPriority + 2 });
   const [state1, setState1] = useState(false);
   const [state2, setState2] = useState(false);
   const [state3, setState3] = useState(false);

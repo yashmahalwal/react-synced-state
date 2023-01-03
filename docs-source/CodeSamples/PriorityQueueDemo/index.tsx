@@ -1,5 +1,5 @@
-export { default, __sourceCode as SourceCode } from "./QueueDemo";
+export { default, __sourceCode as SourceCode } from "./PriorityQueueDemo";
 
-declare module "./QueueDemo" {
+declare module "./PriorityQueueDemo" {
   export const __sourceCode: string;
 }

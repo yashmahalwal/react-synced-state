@@ -46,11 +46,16 @@ export default function Queueing() {
               <li>
                 Whenever the queue changes, front of queue is calculated. The hook that requested this transition is
                 given a go ahead to set a <code>truthy</code> value. All the other transitions everywhere else are
-                blocked.
+                blocked on hook level.
               </li>
               <li>
                 When the hook transitions to a <code>falsy</code> value, its ID is removed from the queue and next entry
                 comes to the front
+              </li>
+              <li>
+                It is important to remember that generated ID tracks the transition between <code>truthy</code>truthy
+                and <code>falsy</code>falsy. So changing from a <code>truthy</code> value to another <code>truthy</code>{" "}
+                value will have no effect in the queue. Same applies for <code>falsy</code> values.{" "}
               </li>
             </ol>
           </section>
@@ -62,24 +67,12 @@ export default function Queueing() {
               <li>
                 The hook has maintains two values. First one is the current state value. This value is updated normally
                 with <code>setState</code> calls. The second one is a cached value that we call{" "}
-                <code>last falsy state</code>. This is the value that is shown when state value is changed to truthy but
-                it isn&apos;t this hook&apos;s turn to make the transition
+                <code>oldStateValue</code>. This is the latest <code>falsy</code> value passed to the hook.
               </li>
               <li>
-                Whenever state is set to a <code>falsy</code> value, <code>last falsy state</code> is updated to store
-                that value. So it remembers the latest <code>falsy</code> value passed to the state
-              </li>
-              <li>
-                When state is updated from a <code>falsy value</code> to a <code>truthy value</code>, a unique ID is
-                generated and passed to the global queue. When state is updated to a <code>truthy value</code> to a{" "}
-                <code>falsy value</code>, that ID is removed from the queue.
-              </li>
-              <li>
-                If the hook is at the front of queue, it returns the current state value. Since component is at the
-                front of the queue, current state value is <code>truthy</code>. If the component is not at the front of
-                the queue, we return the <code>last falsy value</code>. Updating state to a <code>falsy</code> value
-                reflects immediately whereas updating state to a <code>truthy</code> value will hold the change in
-                return value until hook is at front of the queue.
+                What is returned from the hook depends on the global queue. If the hook&apos;s transition request is at
+                the front of the queue, current state is returned. Otherwise we return the cached <code>falsy</code>{" "}
+                value.
               </li>
             </ol>
           </section>
@@ -95,13 +88,16 @@ export default function Queueing() {
           </Typography>
           <ol>
             <li>
-              The <code>last falsy state</code> is set to initial value by default. If the initial value is not{" "}
-              <code>falsy</code>, hook throws an error asking you to set the value to <code>falsy</code>.
+              If the hook has a <code>truthy</code> initial value, then the entry is made to the queue as soon as the
+              hook mounts. This is done as it is natural to want this initial to block other transitions across the app.{" "}
+              <code>oldStateValue</code> is set to the initial value by default. So even when it is not this hook&apos;s
+              turn at the front of the queue, it will still return that truthy value. Avoid passing <code>truthy</code>{" "}
+              initial value to avoid bugs.
             </li>
             <li>
-              If the state value is set to falsy, return value is immediately updated to this value. If you set a series
-              of <code>falsy</code> values one after the another, those will be reflected at the same time in return
-              value.
+              If the state value is set to <code>falsy</code>, return value is immediately updated to this value. If you
+              set a series of <code>falsy</code> values one after the another, those will be reflected at the same time
+              in return value.
             </li>
             <li>
               If the ID is at the front of queue (current state must be <code>truthy</code>) and you update the state to
