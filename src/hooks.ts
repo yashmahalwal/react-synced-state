@@ -15,16 +15,9 @@ export function useSyncedValue<T>(state: T, config?: Config<T>): T {
     return !!ticketNumber.current && top.get(config?.layer ?? defaultLayerName) === ticketNumber.current;
   }, [config?.layer, top]);
 
-  // Use effect not needed but it is 'reactive' to specify side effects
-  useEffect(
-    () => {
-      if (isStateFalsy) {
-        oldStateValue.current = state;
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isStateFalsy]
-  );
+  if (isStateFalsy) {
+    oldStateValue.current = state;
+  }
 
   useEffect(() => {
     const layer = config?.layer ?? defaultLayerName;
@@ -45,12 +38,5 @@ export function useSyncedValue<T>(state: T, config?: Config<T>): T {
 
 export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>] {
   const [state, setState] = useState(arg);
-  useEffect(() => {
-    // Only initial value matters
-    if (!checkFalsiness(state, config)) {
-      throw new Error(`Initial state value ${arg}: (evaluates to ${state}) for synced state should pass falsy check`);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return [useSyncedValue(state, config), setState];
 }
