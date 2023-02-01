@@ -89,10 +89,10 @@ export default function Queueing() {
           <ol>
             <li>
               If the hook has a <code>truthy</code> initial value, then the entry is made to the queue as soon as the
-              hook mounts. This is done as it is natural to want this initial to block other transitions across the app.{" "}
-              <code>oldStateValue</code> is set to the initial value by default. So even when it is not this hook&apos;s
-              turn at the front of the queue, it will still return that truthy value. Avoid passing <code>truthy</code>{" "}
-              initial value to avoid bugs.
+              hook mounts. This is done as it is natural to want this initial value to block other transitions across
+              the app. <code>oldStateValue</code> is set to the initial value by default. So even when it is not this
+              hook&apos;s turn at the front of the queue, it will still return that truthy value. Avoid passing{" "}
+              <code>truthy</code> initial value to avoid bugs.
             </li>
             <li>
               If the state value is set to <code>falsy</code>, return value is immediately updated to this value. If you

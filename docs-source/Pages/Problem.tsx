@@ -14,10 +14,10 @@ export default function Problem() {
         The Problem
       </Typography>
       <Typography variant={"body1"}>
-        React applications made up of components and each component can have its own state. The component controls when
-        and how its state is updated. Sometimes, a single event (such as successfully fetching some data or clicking on
-        a button) can cause independent state updates across multiple components. We have no way of ordering or
-        synchronising these state updates.
+        React applications are made up of components and each component can have its own state. The component controls
+        when and how its state is updated. Sometimes, a single event (such as successfully fetching some data or
+        clicking on a button) can cause independent state updates across multiple components. We have no way of ordering
+        or synchronising these state updates.
       </Typography>
 
       <section style={{ marginTop: theme.spacing(4) }}>
