@@ -16,6 +16,7 @@ const MainConcepts = lazy(() => import("./Pages/MainConcepts"));
 const Queueing = lazy(() => import("./Pages/MainConcepts/Queueing"));
 const Priority = lazy(() => import("./Pages/MainConcepts/Priority"));
 const Examples = lazy(() => import("./Pages/Examples"));
+const NotificationManagement = lazy(() => import("./Pages/Examples/NotificationManagement"));
 
 topbar.config({
   barThickness: 2,
@@ -53,6 +54,7 @@ const paths: (({ path: string } | { index: true }) & { element: React.ReactNode 
   { path: "/main-concepts/priority", element: <Priority /> },
   { path: "/main-concepts/layers", element: <Layers /> },
   { path: "/examples", element: <Examples /> },
+  { path: "/examples/notification-management", element: <NotificationManagement /> },
 ];
 
 function Router() {

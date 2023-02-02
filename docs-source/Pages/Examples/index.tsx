@@ -30,8 +30,8 @@ export default function Examples() {
             label: "Layers",
           }}
           forward={{
-            route: "/main-concepts/queueing",
-            label: "Queueing",
+            route: "/examples/notification-management",
+            label: "Notification Management",
           }}
         />
       </Container>

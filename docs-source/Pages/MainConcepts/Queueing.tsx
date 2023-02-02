@@ -66,8 +66,9 @@ export default function Queueing() {
             <ol>
               <li>
                 The hook has maintains two values. First one is the current state value. This value is updated normally
-                with <code>setState</code> calls. The second one is a cached value that we call{" "}
-                <code>oldStateValue</code>. This is the latest <code>falsy</code> value passed to the hook.
+                with <code>setState</code> calls and is available as the third return value of the hook. The second one
+                is a cached value that we call <code>oldStateValue</code>. This is the latest <code>falsy</code> value
+                passed to the hook.
               </li>
               <li>
                 What is returned from the hook depends on the global queue. If the hook&apos;s transition request is at

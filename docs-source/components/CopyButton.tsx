@@ -15,16 +15,18 @@ const CopyButton: React.FunctionComponent<{ content: string }> = ({ content }) =
   }, [copied]);
   return (
     <Tooltip title={copied ? "Copied!" : "Copy code"}>
-      <IconButton
-        disabled={copied}
-        onClick={async () => {
-          await navigator.clipboard.writeText(content);
-          setCopied(true);
-        }}
-        size={"small"}
-      >
-        {copied ? <CheckOutlined fontSize={"small"} color={"success"} /> : <ContentCopyRounded fontSize={"small"} />}
-      </IconButton>
+      <span>
+        <IconButton
+          disabled={copied}
+          onClick={async () => {
+            await navigator.clipboard.writeText(content);
+            setCopied(true);
+          }}
+          size={"small"}
+        >
+          {copied ? <CheckOutlined fontSize={"small"} color={"success"} /> : <ContentCopyRounded fontSize={"small"} />}
+        </IconButton>
+      </span>
     </Tooltip>
   );
 };

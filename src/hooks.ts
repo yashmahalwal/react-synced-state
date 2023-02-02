@@ -36,7 +36,7 @@ export function useSyncedValue<T>(state: T, config?: Config<T>): T {
   return isStateFalsy || isAtFrontOfQueue ? state : oldStateValue.current;
 }
 
-export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>] {
+export function useSyncedState<T>(arg: T | (() => T), config?: Config<T>): [T, Dispatch<SetStateAction<T>>, T] {
   const [state, setState] = useState(arg);
-  return [useSyncedValue(state, config), setState];
+  return [useSyncedValue(state, config), setState, state];
 }

@@ -6,7 +6,7 @@ module.exports = new Transformer({
       return [asset];
     }
     const source = await asset.getCode();
-    const cleaned = source.replaceAll("\u0000", "").replaceAll("../../../src", "react-synced-state");
+    const cleaned = source.replaceAll("\u0000", "").replaceAll(/"(.*)(src")/g, '"react-synced-state"');
     const base64 = Buffer.from(cleaned).toString("base64");
     asset.setCode(`${source}\nexport const __sourceCode="${base64}"`);
     return [asset];
