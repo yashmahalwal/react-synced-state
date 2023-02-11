@@ -27,21 +27,21 @@ export default function UncontrolledModals() {
       }}
     >
       <Modal
-        heading={"Dialog 1"}
+        heading={"Dialog 1 title"}
         body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
         open={firstDialogOpen}
         onClose={() => setFirstDialogOpen(false)}
       />
       <Snackbar open={successAlertOpen}>
         <Alert severity={"success"} variant={"filled"} onClose={() => setSuccessAlertOpen(false)}>
-          Alert 1: This is a success alert! Yoo-hoo!
+          Alert title: This is a success alert! Yoo-hoo!
         </Alert>
       </Snackbar>
       <Button variant={"contained"} onClick={openModals}>
         Click Me
       </Button>
       <Modal
-        heading={"Dialog 2"}
+        heading={"Dialog 2 title"}
         body={new Array(20)
           .fill(`Praesent mattis a tellus suscipit venenatis. Morbi rutrum, elit in vulputate ornare`)
           .join("\n")}
@@ -55,7 +55,7 @@ export default function UncontrolledModals() {
             margin: [1, 2],
           }}
         >
-          Drawer 1
+          Drawer title
         </Typography>
         <Button aria-label={"close"} onClick={() => setDrawerOpen(false)}>
           Close

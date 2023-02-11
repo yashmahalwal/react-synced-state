@@ -11,21 +11,27 @@ interface ModalProps extends DialogProps {
   body: React.ReactNode;
 
   onClose?(): void;
+
+  name?: string;
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, ...props }) => {
+const Modal: React.FunctionComponent<ModalProps> = ({ heading, body, name, ...props }) => {
   return (
     <Dialog {...props}>
-      <DialogTitle>{heading}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{body}</DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.onClose} aria-label={"close"}>
-          Close
-        </Button>
-        <Button onClick={props.onClose}>Agree</Button>
-      </DialogActions>
+      {props.open && (
+        <>
+          <DialogTitle>{heading}</DialogTitle>
+          <DialogContent>
+            <DialogContentText>{body}</DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={props.onClose} aria-label={"close"}>
+              Close {name}
+            </Button>
+            <Button onClick={props.onClose}>Agree</Button>
+          </DialogActions>
+        </>
+      )}
     </Dialog>
   );
 };
