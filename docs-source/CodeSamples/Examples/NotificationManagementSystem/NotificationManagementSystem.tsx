@@ -49,17 +49,17 @@ const NotificationManagementSystem = () => {
 
   return (
     <Box>
-      <Snackbar open={notification1} onClose={() => setNotification1(false)}>
+      <Snackbar open={notification1}>
         <Alert variant={"filled"} onClose={() => setNotification1(false)} severity="success">
           Priority 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Alert>
       </Snackbar>
-      <Snackbar open={notification2} onClose={() => setNotification2(false)}>
+      <Snackbar open={notification2}>
         <Alert variant={"filled"} onClose={() => setNotification2(false)} severity="warning">
           Priority 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Alert>
       </Snackbar>
-      <Snackbar open={notification3} onClose={() => setNotification3(false)}>
+      <Snackbar open={notification3}>
         <Alert variant={"filled"} onClose={() => setNotification3(false)} severity="error">
           Priority 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
