@@ -59,8 +59,8 @@ export default function Queueing() {
       </section>
       <Footer
         back={{
-          route: "/main-concepts",
-          label: "Main Concepts",
+          route: "/main-concepts/queueing",
+          label: "Queuing",
         }}
         forward={{
           route: "/main-concepts/layers",
