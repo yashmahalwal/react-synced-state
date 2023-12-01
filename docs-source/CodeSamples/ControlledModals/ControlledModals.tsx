@@ -1,6 +1,6 @@
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import Drawer from "@mui/material/Drawer/Drawer";
+import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { useSyncedState } from "../../../src";

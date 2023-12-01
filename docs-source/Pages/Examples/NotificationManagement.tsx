@@ -2,7 +2,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import CodePreview from "../../components/code/CodePreview";
 import NotificationManagementSystem, { SourceCode } from "../../CodeSamples/Examples/NotificationManagementSystem";
-import Box from "@mui/material/Box/Box";
+import Box from "@mui/material/Box";
 import PageWithContent from "../../components/layouts/PageWithContent";
 import { Pages } from "../../navigationData/pages";
 

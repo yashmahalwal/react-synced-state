@@ -3,11 +3,11 @@ import Collapse from "@mui/material/Collapse";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box/Box";
+import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton/IconButton";
 import { Code, CodeOff, InfoOutlined } from "@mui/icons-material";
-import CardHeader from "@mui/material/CardHeader/CardHeader";
-import Tooltip from "@mui/material/Tooltip/Tooltip";
+import CardHeader from "@mui/material/CardHeader";
+import Tooltip from "@mui/material/Tooltip";
 import CopyButton from "../CopyButton";
 import CodeSnippet from "./CodeSnippet";
 

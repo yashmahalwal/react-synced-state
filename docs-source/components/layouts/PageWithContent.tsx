@@ -2,7 +2,7 @@ import React, { FunctionComponent, ReactNode } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Footer from "../Footer";
-import Box from "@mui/material/Box/Box";
+import Box from "@mui/material/Box";
 import { NavigationEntry } from "../../navigationData/pages";
 import Sidebar from "../navigation/Sidebar";
 
@@ -15,12 +15,12 @@ export interface FullPageProps {
 
 const PageWithContent: FunctionComponent<FullPageProps> = ({ title, content, previousLink, nextLink }) => {
   return (
-    <Box height={"100%"} display={"flex"}>
+    <Box minHeight={"100%"} display={"flex"}>
       <Box flex={0}>
         <Sidebar />
       </Box>
-      <Box height={"100%"} display={"flex"} flexDirection={"column"} flex={1} minWidth={0} padding={6}>
-        <Container maxWidth={"lg"} sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <Box display={"flex"} flexDirection={"column"} flex={1} minWidth={0} padding={6}>
+        <Container maxWidth={"xl"} sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
           <Box flex={1}>
             {!!title && (
               <Typography gutterBottom variant={"h4"} fontWeight={"bold"} component={"h1"}>
@@ -29,7 +29,9 @@ const PageWithContent: FunctionComponent<FullPageProps> = ({ title, content, pre
             )}
             {content}
           </Box>
-          <Footer back={previousLink} forward={nextLink} />
+          <Box pt={6}>
+            <Footer back={previousLink} forward={nextLink} />
+          </Box>
         </Container>
       </Box>
     </Box>

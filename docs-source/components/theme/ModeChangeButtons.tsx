@@ -2,7 +2,7 @@ import React, { FunctionComponent, useContext } from "react";
 import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import { AppThemeContext, AppThemeMode } from "./AppThemeProvider";
-import Box from "@mui/material/Box/Box";
+import Box from "@mui/material/Box";
 
 const modes: AppThemeMode[] = ["light", "system", "dark"];
 const ModeChangeButtons: FunctionComponent = () => {

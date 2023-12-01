@@ -4,7 +4,7 @@ import { defaultPriority, useSyncedState } from "../../../../src";
 import Button from "@mui/material/Button";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Box from "@mui/material/Box/Box";
+import Box from "@mui/material/Box";
 
 const TOGGLE_LAYER = "TOGGLE_LAYER";
 const invertFunction = (prev: boolean) => !prev;

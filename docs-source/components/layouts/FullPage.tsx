@@ -15,12 +15,11 @@ export interface FullPageProps {
 
 const FullPage: FunctionComponent<FullPageProps> = ({ title, subtitle, previousLink, nextLink }) => {
   return (
-    <Box height={"100%"} display={"flex"}>
+    <Box minHeight={"100%"} display={"flex"}>
       <Box flex={0}>
         <Sidebar />
       </Box>
       <Box
-        minHeight={"100vh"}
         display={"flex"}
         justifyContent={"center"}
         position={"relative"}
@@ -46,7 +45,7 @@ const FullPage: FunctionComponent<FullPageProps> = ({ title, subtitle, previousL
             )}
           </Container>
         </Box>
-        <Container maxWidth={"lg"} sx={{ position: "absolute", left: 0, bottom: 0, right: 0, py: 6 }}>
+        <Container maxWidth={"xl"} sx={{ position: "absolute", left: 0, bottom: 0, right: 0, py: 6 }}>
           <Footer back={previousLink} forward={nextLink} />
         </Container>
       </Box>
