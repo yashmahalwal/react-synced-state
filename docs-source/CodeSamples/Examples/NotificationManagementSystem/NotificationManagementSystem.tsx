@@ -29,11 +29,10 @@ const NotificationManagementSystem = () => {
     priority: Infinity,
   });
   const [toggle1, setToggle1] = useSyncedState(false, {
-    priority: defaultPriority + 3,
     layer: TOGGLE_LAYER,
   });
   const [toggle2, setToggle2] = useSyncedState(false, {
-    priority: defaultPriority + 5,
+    priority: defaultPriority + 1,
     layer: TOGGLE_LAYER,
   });
   const [toggle3, setToggle3] = useSyncedState(false, {

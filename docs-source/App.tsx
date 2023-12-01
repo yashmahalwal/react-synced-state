@@ -1,15 +1,16 @@
 import React, { lazy, Suspense, useRef } from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter, Outlet, useLocation } from "react-router-dom";
 import { Routes, Route, useLoadingContext, topbar } from "react-router-loading";
-import { primaryColor, themeOptions } from "./components/theme";
-import { useEffect, useState } from "react";
+import { primaryColor } from "./components/theme/theme";
+import { useEffect } from "react";
 import { SyncedStateProvider } from "../src";
 import NotFound from "./Pages/NotFound";
 import Home from "./Pages/Home";
 import Layers from "./Pages/MainConcepts/Layers";
+import { Pages } from "./navigationData/pages";
+import { AppThemeProvider } from "./components/theme/AppThemeProvider";
+
 const Problem = lazy(() => import("./Pages/Problem"));
 const QuickStart = lazy(() => import("./Pages/QuickStart"));
 const MainConcepts = lazy(() => import("./Pages/MainConcepts"));
@@ -47,14 +48,14 @@ function SuspenseWrapper() {
 
 const paths: (({ path: string } | { index: true }) & { element: React.ReactNode })[] = [
   { index: true, element: <Home /> },
-  { path: "/problem", element: <Problem /> },
-  { path: "/quick-start", element: <QuickStart /> },
-  { path: "/main-concepts", element: <MainConcepts /> },
-  { path: "/main-concepts/queueing", element: <Queueing /> },
-  { path: "/main-concepts/priority", element: <Priority /> },
-  { path: "/main-concepts/layers", element: <Layers /> },
-  { path: "/examples", element: <Examples /> },
-  { path: "/examples/notification-management", element: <NotificationManagement /> },
+  { path: Pages.Problem.path, element: <Problem /> },
+  { path: Pages.QuickStart.path, element: <QuickStart /> },
+  { path: Pages.MainConcepts.Index.path, element: <MainConcepts /> },
+  { path: Pages.MainConcepts.Queueing.path, element: <Queueing /> },
+  { path: Pages.MainConcepts.Priority.path, element: <Priority /> },
+  { path: Pages.MainConcepts.Layers.path, element: <Layers /> },
+  { path: Pages.Examples.Index.path, element: <Examples /> },
+  { path: Pages.Examples.NotificationManagement.path, element: <NotificationManagement /> },
 ];
 
 function Router() {
@@ -78,40 +79,14 @@ function Router() {
 }
 
 export default function App() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [darkMode, setDarkMode] = useState(prefersDarkMode);
-
-  useEffect(() => {
-    setDarkMode(prefersDarkMode);
-  }, [prefersDarkMode]);
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        ...themeOptions,
-        palette: {
-          ...themeOptions.palette,
-          mode: darkMode ? "dark" : "light",
-        },
-      }),
-    [darkMode]
-  );
-
   return (
-    <>
-      <style>
-        {`:not(pre) > code{
-          background-color: ${theme.palette.mode === "dark" ? "#424242" : "#efefef"};
-        }`}
-      </style>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <SyncedStateProvider>
-            <Router />
-          </SyncedStateProvider>
-        </BrowserRouter>
-      </ThemeProvider>
-    </>
+    <AppThemeProvider>
+      <CssBaseline />
+      <BrowserRouter>
+        <SyncedStateProvider>
+          <Router />
+        </SyncedStateProvider>
+      </BrowserRouter>
+    </AppThemeProvider>
   );
 }

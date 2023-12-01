@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { styled } from "@mui/material/styles";
 import ArrowForward from "@mui/icons-material/ArrowForward";
-import LinkButton from "../components/LinkButton";
+import LinkButton from "../components/navigation/LinkButton";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import CopyButton from "../components/CopyButton";

@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import { Code, CodeOff, InfoOutlined } from "@mui/icons-material";
 import CardHeader from "@mui/material/CardHeader/CardHeader";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
-import CopyButton from "./CopyButton";
+import CopyButton from "../CopyButton";
 import CodeSnippet from "./CodeSnippet";
 
 interface Props {
