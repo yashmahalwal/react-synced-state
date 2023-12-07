@@ -10,6 +10,7 @@ import Home from "./Pages/Home";
 import Layers from "./Pages/MainConcepts/Layers";
 import { Pages } from "./navigationData/pages";
 import { AppThemeProvider } from "./components/theme/AppThemeProvider";
+import AppContentLayout from "./components/layouts/AppContentLayout";
 
 const Problem = lazy(() => import("./Pages/Problem"));
 const QuickStart = lazy(() => import("./Pages/QuickStart"));
@@ -84,7 +85,9 @@ export default function App() {
       <CssBaseline />
       <BrowserRouter>
         <SyncedStateProvider>
-          <Router />
+          <AppContentLayout>
+            <Router />
+          </AppContentLayout>
         </SyncedStateProvider>
       </BrowserRouter>
     </AppThemeProvider>

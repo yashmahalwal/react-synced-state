@@ -32,7 +32,7 @@ export default function PreviewQueueDemo() {
       justifyContent={"space-around"}
       sx={{
         flexDirection: {
-          sm: "column",
+          xs: "column",
           md: "row",
         },
       }}

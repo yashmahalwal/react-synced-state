@@ -9,7 +9,7 @@ const CodeSnippet: React.FunctionComponent<Props> = ({ children, customStyle, ..
   const { palette } = useTheme();
   return (
     <SyntaxHighlighter
-      customStyle={{ fontSize: "13px !important", margin: 0, overflow: "initial", border: "none", ...customStyle }}
+      customStyle={{ fontSize: "13px !important", margin: 0, border: "none", ...customStyle }}
       language={"typescript"}
       style={palette.mode === "dark" ? vscDarkPlus : vs}
       {...rest}

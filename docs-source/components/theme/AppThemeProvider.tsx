@@ -66,7 +66,7 @@ export function AppThemeProvider({ children }: PropsWithChildren) {
           background-color: ${theme.palette.mode === "dark" ? "#424242" : "#efefef"};
         }
         
-        html, body, body > main, body> main > style + div{
+        html, body, body > main{
           height: 100%
         }
         `}
