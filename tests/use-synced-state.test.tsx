@@ -6,6 +6,7 @@ import ControlledModals from "../docs-source/CodeSamples/ControlledModals";
 import { ProviderWrapper } from "./ProviderWrapper";
 import QueueDemo from "../docs-source/CodeSamples/QueueDemo";
 import PriorityQueueDemo from "../docs-source/CodeSamples/PriorityQueueDemo";
+import NotificationManagementSystem from "../docs-source/CodeSamples/Examples/NotificationManagementSystem";
 
 describe("Use synced state hook", () => {
   it("Works as normal state hook if only single component used", async () => {
@@ -264,5 +265,119 @@ describe("Use synced state hook", () => {
     expect(getSyncedCheckbox1()).not.toBeChecked();
     expect(getSyncedCheckbox2()).not.toBeChecked();
     expect(getSyncedCheckbox3()).toBeChecked();
+  });
+
+  describe("Notification Management System", () => {
+    function getNotification1() {
+      return screen.queryByText(/^Priority 1/);
+    }
+
+    function getNotification2() {
+      return screen.queryByText(/^Priority 2/);
+    }
+
+    function getNotification3() {
+      return screen.queryByText(/^Priority 3/);
+    }
+
+    function getCloseButton() {
+      return screen.getByRole("button", { name: /close/i });
+    }
+
+    function getBlockAllNotifications() {
+      return screen.getByLabelText("Stop all notifications irrespective of priority");
+    }
+
+    function getBlockNotifications2AndLower() {
+      return screen.getByLabelText("Stop notifications with priority 2 and lower");
+    }
+
+    function getBlockNotifications1AndLower() {
+      return screen.getByLabelText("Stop notifications with priority 1 and lower");
+    }
+
+    it("Shows notification one by one", async () => {
+      render(<NotificationManagementSystem />, { wrapper: ProviderWrapper });
+
+      // Click the "Show Notifications" button
+      await userEvent.click(screen.getByText("Show Notifications"));
+
+      // Animation takes time
+      await waitFor(() => expect(getNotification3()).toBeVisible());
+      expect(getNotification1()).toBeNull();
+      expect(getNotification2()).toBeNull();
+
+      await userEvent.click(getCloseButton());
+
+      await waitFor(() => expect(getNotification2()).toBeVisible());
+      await waitFor(() => expect(getNotification3()).toBeNull());
+      expect(getNotification1()).toBeNull();
+
+      await userEvent.click(getCloseButton());
+
+      await waitFor(() => expect(getNotification1()).toBeVisible());
+      await waitFor(() => expect(getNotification2()).toBeNull());
+      expect(getNotification3()).toBeNull();
+
+      await userEvent.click(getCloseButton());
+
+      await waitFor(() => expect(getNotification1()).toBeNull());
+      expect(getNotification2()).toBeNull();
+      expect(getNotification3()).toBeNull();
+    });
+
+    it("Blocks notifications based on priority", async () => {
+      render(<NotificationManagementSystem />, { wrapper: ProviderWrapper });
+
+      const blockAll = getBlockAllNotifications();
+      const block2AndLower = getBlockNotifications2AndLower();
+      const block1AndLower = getBlockNotifications1AndLower();
+
+      await userEvent.click(blockAll);
+      await userEvent.click(screen.getByText("Show Notifications"));
+
+      // No notification should be visible
+      expect(getNotification1()).toBeNull();
+      expect(getNotification2()).toBeNull();
+      expect(getNotification3()).toBeNull();
+
+      await userEvent.click(blockAll);
+
+      await waitFor(() => expect(getNotification3()).toBeVisible());
+      expect(getNotification1()).toBeNull();
+      expect(getNotification2()).toBeNull();
+
+      await userEvent.click(block2AndLower);
+      await userEvent.click(getCloseButton());
+
+      // No notification should be visible
+      expect(getNotification1()).toBeNull();
+      expect(getNotification2()).toBeNull();
+      await waitFor(() => expect(getNotification3()).toBeNull());
+
+      await userEvent.click(block2AndLower);
+
+      await waitFor(() => expect(getNotification2()).toBeVisible());
+      expect(getNotification3()).toBeNull();
+      expect(getNotification1()).toBeNull();
+
+      await userEvent.click(block1AndLower);
+      await userEvent.click(getCloseButton());
+
+      // No notification should be visible
+      expect(getNotification1()).toBeNull();
+      await waitFor(() => expect(getNotification2()).toBeNull());
+      expect(getNotification3()).toBeNull();
+
+      await userEvent.click(block1AndLower);
+      await waitFor(() => expect(getNotification1()).toBeVisible());
+      expect(getNotification2()).toBeNull();
+      expect(getNotification3()).toBeNull();
+
+      await userEvent.click(getCloseButton());
+      await waitFor(() => expect(getNotification1()).toBeNull());
+      expect(getNotification2()).toBeNull();
+      expect(getNotification3()).toBeNull();
+    });
   });
 });

@@ -31,9 +31,30 @@ export default function NotificationManagement() {
           <article>
             <Box marginTop={2}>
               <Typography variant={"body1"} gutterBottom>
-                Let us take a look at what&apos;s happening here:
+                If you look at the code carefully, we have 3 different sets of synced state hooks (priorities are
+                relative to <code>defaultPriority</code>:
               </Typography>
               <ol>
+                <li>
+                  States for notification visible - <code>Layer: default, priority: 1</code>,{" "}
+                  <code>Layer: default, priority: 3</code>, <code>Layer: default, priority: 5</code>. These are
+                  synchronised so that only one notification is shown at once
+                </li>
+                <li>
+                  States for blocking notifications - <code>Layer: default, priority: 2</code>,{" "}
+                  <code>Layer: default, priority: 4</code>, <code>Layer: default, priority: 6</code>. These are
+                  synchronised on the same layer as notifications. So when a given blocking state is set to true,
+                  notifications with lower priority than this state update are hidden.
+                </li>
+                <li>
+                  States for toggling block notification switches. These are normal state variables which are used to
+                  track which level of notifications have been queued to block.
+                </li>
+              </ol>
+              <Typography variant={"body1"} mt={2} gutterBottom>
+                As a result, this is how the notifications behave:
+              </Typography>
+              <ul>
                 <li>
                   All the notifications are triggerred together but show up one by one. These notifications have
                   differing severities (controlled by <code>priority</code> option in the hook)
@@ -46,12 +67,7 @@ export default function NotificationManagement() {
                   When a switch toggle is enabled, it schedules a <code>true</code> state update with priority higher
                   than the corresponding notification. The update will block transition of making notification visible.
                 </li>
-                <li>
-                  These switch toggles are also synchronized among themselves. The switch with higher blocking
-                  capability will take precedence. This is done by putting state for toggles in a different{" "}
-                  <code>layer</code> and assigning them <code>priorities</code>.
-                </li>
-              </ol>
+              </ul>
             </Box>
           </article>
         </section>

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Alert, Snackbar, Switch } from "@mui/material";
 import { defaultPriority, useSyncedState } from "../../../../src";
 import Button from "@mui/material/Button";
@@ -6,39 +6,30 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Box from "@mui/material/Box";
 
-const TOGGLE_LAYER = "TOGGLE_LAYER";
 const invertFunction = (prev: boolean) => !prev;
 const NotificationManagementSystem = () => {
   const [notification1, setNotification1] = useSyncedState(false, {
-    priority: defaultPriority + 2,
+    priority: defaultPriority + 1,
   });
   const [notification2, setNotification2] = useSyncedState(false, {
-    priority: defaultPriority + 4,
+    priority: defaultPriority + 3,
   });
   const [notification3, setNotification3] = useSyncedState(false, {
-    priority: defaultPriority + 6,
+    priority: defaultPriority + 5,
   });
 
   const [, setBlockNotification1] = useSyncedState(false, {
-    priority: defaultPriority + 3,
+    priority: defaultPriority + 2,
   });
   const [, setBlockNotification2] = useSyncedState(false, {
-    priority: defaultPriority + 5,
+    priority: defaultPriority + 4,
   });
   const [, setBlockNotification3] = useSyncedState(false, {
     priority: Infinity,
   });
-  const [toggle1, setToggle1] = useSyncedState(false, {
-    layer: TOGGLE_LAYER,
-  });
-  const [toggle2, setToggle2] = useSyncedState(false, {
-    priority: defaultPriority + 1,
-    layer: TOGGLE_LAYER,
-  });
-  const [toggle3, setToggle3] = useSyncedState(false, {
-    priority: Infinity,
-    layer: TOGGLE_LAYER,
-  });
+  const [toggle1, setToggle1] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
+  const [toggle3, setToggle3] = useState(false);
 
   const handleShowNotifications = useCallback(() => {
     setNotification1(true);
