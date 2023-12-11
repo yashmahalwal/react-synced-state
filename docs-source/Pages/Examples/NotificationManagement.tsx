@@ -31,7 +31,7 @@ export default function NotificationManagement() {
           <article>
             <Box marginTop={2}>
               <Typography variant={"body1"} gutterBottom>
-                If you look at the code carefully, we have 3 different sets of synced state hooks (priorities are
+                If you look at the code carefully, we have 2 different sets of synced state hooks (priorities are
                 relative to <code>defaultPriority</code>:
               </Typography>
               <ol>
@@ -45,10 +45,6 @@ export default function NotificationManagement() {
                   <code>Layer: default, priority: 4</code>, <code>Layer: default, priority: 6</code>. These are
                   synchronised on the same layer as notifications. So when a given blocking state is set to true,
                   notifications with lower priority than this state update are hidden.
-                </li>
-                <li>
-                  States for toggling block notification switches. These are normal state variables which are used to
-                  track which level of notifications have been queued to block.
                 </li>
               </ol>
               <Typography variant={"body1"} mt={2} gutterBottom>

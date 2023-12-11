@@ -7,6 +7,7 @@ import { ProviderWrapper } from "./ProviderWrapper";
 import QueueDemo from "../docs-source/CodeSamples/QueueDemo";
 import PriorityQueueDemo from "../docs-source/CodeSamples/PriorityQueueDemo";
 import NotificationManagementSystem from "../docs-source/CodeSamples/Examples/NotificationManagementSystem";
+import LayersDemo from "../docs-source/CodeSamples/LayersDemo";
 
 describe("Use synced state hook", () => {
   it("Works as normal state hook if only single component used", async () => {
@@ -265,6 +266,59 @@ describe("Use synced state hook", () => {
     expect(getSyncedCheckbox1()).not.toBeChecked();
     expect(getSyncedCheckbox2()).not.toBeChecked();
     expect(getSyncedCheckbox3()).toBeChecked();
+  });
+
+  it("Isolates updates in layers", async () => {
+    render(<LayersDemo />, { wrapper: ProviderWrapper });
+
+    const getDialog1 = () => screen.queryByText("Dialog 1");
+    const getDialog2 = () => screen.queryByText("Dialog 2");
+    const getDialog3 = () => screen.queryByText("Dialog 3");
+    const getAlert1 = () => screen.queryByText("Alert 1", { exact: false });
+    const getAlert2 = () => screen.queryByText("Alert 2", { exact: false });
+    const getAlert3 = () => screen.queryByText("Alert 3", { exact: false });
+
+    const close = async () => {
+      const alertCloseButton = screen.getByTitle(/close/i);
+      const dialogCloseButton = screen.getByText(/close/i);
+      for (const button of [alertCloseButton, dialogCloseButton]) {
+        await userEvent.click(button);
+      }
+    };
+
+    const clickButton = screen.getByRole("button", { name: "Click Me" });
+    await userEvent.click(clickButton);
+
+    await waitFor(() => expect(getDialog1()).toBeVisible());
+    expect(getDialog2()).toBeNull();
+    expect(getDialog3()).toBeNull();
+    await waitFor(() => expect(getAlert1()).toBeVisible());
+    expect(getAlert2()).toBeNull();
+    expect(getAlert3()).toBeNull();
+    await close();
+
+    await waitFor(() => expect(getDialog1()).toBeNull());
+    await waitFor(() => expect(getDialog2()).toBeVisible());
+    expect(getDialog3()).toBeNull();
+    await waitFor(() => expect(getAlert1()).toBeNull());
+    await waitFor(() => expect(getAlert2()).toBeVisible());
+    expect(getAlert3()).toBeNull();
+
+    await close();
+    expect(getDialog1()).toBeNull();
+    await waitFor(() => expect(getDialog2()).toBeNull());
+    await waitFor(() => expect(getDialog3()).toBeVisible());
+    expect(getAlert1()).toBeNull();
+    await waitFor(() => expect(getAlert2()).toBeNull());
+    await waitFor(() => expect(getAlert3()).toBeVisible());
+
+    await close();
+    expect(getDialog1()).toBeNull();
+    expect(getDialog2()).toBeNull();
+    await waitFor(() => expect(getDialog3()).toBeNull());
+    expect(getAlert1()).toBeNull();
+    expect(getAlert2()).toBeNull();
+    await waitFor(() => expect(getAlert3()).toBeNull());
   });
 
   describe("Notification Management System", () => {
