@@ -1,7 +1,13 @@
 import { defaultLayerName, defaultPriority, Layer, Priority, QueueTicket } from "./types";
 
+/**
+ * Represents a heap based priority queue used for synchronizing state updates.
+ * It has independent queues corresponding to each provided layer
+ * Each layer queue has a max heap of priorities
+ * and a map of priorities vs FIFO ticket queue over that priority
+ */
 export default class PriorityStateQueue {
-  private layers: Map<Layer, { map: Map<Priority, QueueTicket[]>; heap: QueueTicket[] }> = new Map();
+  private layers: Map<Layer, { map: Map<Priority, QueueTicket[]>; heap: Priority[] }> = new Map();
 
   private static checkHeapIndex(index: number, heap: QueueTicket[]) {
     if (index < 0) {
@@ -60,18 +66,22 @@ export default class PriorityStateQueue {
   }
 
   insert(ticket: QueueTicket, layerName: Layer = defaultLayerName, priority: Priority = defaultPriority) {
+    // Getting current layer
     if (!this.layers.has(layerName)) {
       this.layers.set(layerName, { map: new Map(), heap: [] });
     }
 
     const layer = this.layers.get(layerName)!;
+
+    // Get the map of priorities
     const { map: layerMap, heap: layerHeap } = layer;
     if (!layerMap.has(priority)) {
+      // Initialise layer map and layer queue
       layerMap.set(priority, []);
       layerHeap.push(priority);
       let index = layerHeap.length - 1;
       let parent = PriorityStateQueue.getParentIndex(index, layerHeap);
-      // Bubble up
+      // Heap insert: Bubble up
       while (parent !== null) {
         if (layerHeap[parent] < layerHeap[index]) {
           PriorityStateQueue.swapHeapElements(parent, index, layerHeap);
@@ -88,7 +98,7 @@ export default class PriorityStateQueue {
   }
 
   delete(ticket: QueueTicket, layerName: Layer = defaultLayerName, priority: Priority = defaultPriority) {
-    // Actively delete from queue, lazy delete from heap
+    // Actively delete ticket from queue, lazy delete priority from heap
     if (!this.layers.has(layerName)) {
       return;
     }
