@@ -2,6 +2,7 @@
   "name": "@yashmahalwal/react-synced-state",
   "version": "1.0.0",
   "description": "A react hook to synchronise state updates",
+  "main": "build/index.js",
   "scripts": {
     "api-docs": "typedoc",
     "postdocs:build": "npm run api-docs",
