@@ -5,4 +5,5 @@ module.exports = {
     "(ts|tsx)": ["babel-jest", { configFile: "./babel-jest.config.js" }],
   },
   transformIgnorePatterns: [],
+  collectCoverageFrom: ["src/**/*"],
 };
