@@ -42,9 +42,9 @@ export default function Home() {
               sx={{ userSelect: "none" }}
             >
               <Typography color={"textSecondary"} marginLeft={1} fontWeight={600}>
-                <code style={{ background: "transparent" }}>$ npm i react-synced-state&nbsp;</code>
+                <code style={{ background: "transparent" }}>$ npm i @yashmahalwal/react-synced-state&nbsp;</code>
               </Typography>
-              <CopyButton content={"npm i react-synced-state"} />
+              <CopyButton content={"npm i @yashmahalwal/react-synced-state"} />
             </Box>
           </Grid>
         </Grid>

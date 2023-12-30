@@ -10,7 +10,7 @@ import PageWithContent from "../components/layouts/PageWithContent";
 const steps = [
   {
     label: <>Install the package in your app. It only has one (peer) dependency - React.</>,
-    code: "npm i react-synced-state",
+    code: "npm i @yashmahalwal/react-synced-state",
   },
   {
     label: (
