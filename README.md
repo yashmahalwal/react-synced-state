@@ -27,7 +27,7 @@ To work with the code, start by cloning the repository on your local machine. To
 npm install
 ```
 
-React is a peer dependency of the hook. Since it relies on `Providers` and simple `useState` and `useEffect` constructors, this package can work with any version of React from `v16`. 
+React is a peer dependency of the hook. Since it relies on `Providers` and simple `useState` and `useEffect`, this package can work with any version of React from `v16`. 
 However, documentation is written using React `v18`. If you wish to to work with documentation, please ensure `v18` is installed.
 
 ```json
@@ -68,7 +68,7 @@ Code can build for distribution by running
 npm run build
 ```
 
-This created a distribution build under `build`. Code is transpiled down to `javascript` with `es module` imports.
+This creates a distribution build under `build`. Code is transpiled down to `javascript` with `es module` imports.
 
 ## License
 
