@@ -9,6 +9,7 @@
     "docs": "parcel docs-source/index.html",
     "docs:build": "parcel build docs-source/index.html --public-url='/react-synced-state'",
     "build": "rm -rf build/* && tsc -p tsconfig.build.json",
+    "prepublish": "npm run build",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"docs-source/**/*.{ts,tsx}\" \"tests/**/*.{ts,tsx}\"",
     "lint": "eslint --fix \"src/**/*.{ts,tsx}\" \"docs-source/**/*.{ts,tsx}\" \"tests/**/*.{ts,tsx}\"",
