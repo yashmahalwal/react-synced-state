@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useRef } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Outlet, useLocation } from "react-router-dom";
+import { HashRouter, Outlet, useLocation } from "react-router-dom";
 import { Routes, Route, useLoadingContext, topbar } from "react-router-loading";
 import { primaryColor } from "./components/theme/theme";
 import { useEffect } from "react";
@@ -83,13 +83,13 @@ export default function App() {
   return (
     <AppThemeProvider>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter>
         <SyncedStateProvider>
           <AppContentLayout>
             <Router />
           </AppContentLayout>
         </SyncedStateProvider>
-      </BrowserRouter>
+      </HashRouter>
     </AppThemeProvider>
   );
 }

@@ -1,6 +1,7 @@
 export type NavigationEntry = {
   path: string;
   label: string;
+  nativeNavigation?: boolean;
 };
 
 export const Pages = {
@@ -17,4 +18,5 @@ export const Pages = {
     Index: { path: "/examples", label: "Examples" },
     NotificationManagement: { path: "/examples/notification-management", label: "Notification Management" },
   },
+  ApiReference: { path: "/react-synced-state/api-reference/", label: "API Reference", nativeNavigation: true },
 } as const;

@@ -22,6 +22,7 @@ const links: RecursiveNavigationEntry[] = [
     entries: [Pages.MainConcepts.Queueing, Pages.MainConcepts.Priority, Pages.MainConcepts.Layers],
   },
   { header: Pages.Examples.Index, entries: [Pages.Examples.NotificationManagement] },
+  Pages.ApiReference,
 ];
 
 const SidebarContent = () => {

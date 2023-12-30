@@ -1,7 +1,7 @@
 import { NavigationEntry } from "../../navigationData/pages";
 import { useIsOnUrl } from "../../hooks/useIsOnUrl";
 import ListItemButton from "./ListItemLinkButton";
-import { ListItemText } from "@mui/material";
+import { ListItemText, ListItemButton as MuiListItemButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import React from "react";
@@ -19,6 +19,25 @@ type SidebarNavigationEntryListItemProps = {
 const SidebarNavigationEntryListItem = ({ item, level = 1 }: SidebarNavigationEntryListItemProps) => {
   const isActive = useIsOnUrl(item.path);
 
+  const children = <ListItemText primary={item.label} />;
+
+  if (item.nativeNavigation) {
+    return (
+      <MuiListItemButton
+        selected={isActive}
+        disableRipple
+        key={item.label}
+        href={item.path}
+        target={"_blank"}
+        component={"a"}
+        dense={true}
+        sx={{ pl: (level - 1) * 2 + 2, pr: 2 }}
+      >
+        {children}
+      </MuiListItemButton>
+    );
+  }
+
   return (
     <ListItemButton
       selected={isActive}
@@ -28,7 +47,7 @@ const SidebarNavigationEntryListItem = ({ item, level = 1 }: SidebarNavigationEn
       dense={true}
       sx={{ pl: (level - 1) * 2 + 2, pr: 2 }}
     >
-      <ListItemText primary={item.label} />
+      {children}
     </ListItemButton>
   );
 };

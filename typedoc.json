@@ -1,4 +1,4 @@
 {
   "entryPoints": ["src/index.tsx"],
-  "out": "docs-source/api"
+  "out": "docs/api-reference"
 }
