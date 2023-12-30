@@ -5,3 +5,5 @@ coverage
 docs
 docs-source
 parcel-transformer-add-source-code
+tests
+src
